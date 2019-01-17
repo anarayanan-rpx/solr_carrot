@@ -4,7 +4,21 @@
     <title>Carrot Search FoamTree - Physics-inspired visualization of hierarchical data structures</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="css/layout.css"></link>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
   </head>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("button").click(function(){
+      $(this).toggleClass('off-link on-link');
+      if ($(this).hasClass('off-link')) {
+          window.location.href='wordcloud/index.html';
+        } else{
+          window.location.href='index.html';
+        }
+    })
+  })
+</script>
 
   <body>
 
@@ -62,6 +76,10 @@
                 <input type="text" name="raw"  id="raw" value=200 style="width:22%;">
             </td>
             <td><button name="visualize">Visualize</button></td>
+            <td>
+              <button class="button off-link">OF</button>
+              <button class="button on-link">ON</button>
+            </td>
             </tr>
             <tr>
               <td>&nbsp;&nbsp;&nbsp;<input type="checkbox" name="include_abstract" id="include_abstract" value="1"> Include Abstract</td>
