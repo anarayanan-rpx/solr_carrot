@@ -9,77 +9,96 @@
     <meta charset="utf-8" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/common.css" rel="stylesheet" />
+    <link href="assets/css/tooltip.css" rel="stylesheet" />
 </head>
 
 <body>
     <div id="container">
         <div id="visualization"></div>
     </div>
-    <div id="side" style="display:none">
-        <h2>Lazy loading of data</h2>
-
-        <p>
-            With FoamTree 3.2.0 and later you can defer loading of the data for lower levels of the hierarchy until the
-            data
-            is really needed, that is when the user opens the parent group. Click-and-hold or double-click a group with
-            the
-            <code>&raquo;</code> suffix to load its child groups.
-        </p>
-
-        <p>
-            In a real world, you would probably load data from a remote server using Ajax, but for the sake of this
-            demo we
-            simply generate new data and simulate the loading delay using <code>window.setTimeout()</code>.
-        </p>
-
-        <p>
-            For very deeply-nested hierarchies, FoamTree will hit the limit of double floating point precision and will
-            not
-            be able to generate child groups. In such scenarios, the group will be annotated with the
-            <code>&raquo;&raquo;</code> suffix. The only way to let the user browse the contents of such a group is to
-            reload FoamTree with the relevant sub-hierarchy.
-        </p>
-
-        <h4>What's in the code?</h4>
-
-        <ul>
-            <li>
-                <p>Listening to <code><a href="api/index.html#onGroupHold">onGroupHold</a></code> and
-                    <code><a href="api/index.html#onGroupDoubleClick">onGroupDoubleClick</a></code> events
-                    and initiating loading of the group's content if needed.</p>
-            </li>
-
-            <li>
-                <p>Using <code><a href="api/index.html#groupLabelDecorator">groupLabelDecorator</a></code> to append
-                    the <code>&raquo;</code> and <code>&raquo;&raquo;</code> decorations based on the current state
-                    of the visualization.</p>
-            </li>
-
-            <li>
-                <p>A simple utility for displaying spinner animations inside those polygons for which the data
-                    is currently loading. The utility uses the <code><a href="api/index.html#groupContentDecorator">groupContentDecorator</a></code>
-                    to draw the animation.</p>
-            </li>
-        </ul>
+    <div id="side" >
+        <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
+        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css" rel="stylesheet"/>
+            <table id="t1" class="display" width="100%"></table>
     </div>
 
     <script src="js/carrotsearch.foamtree.js"></script>
 
     <!-- Include Hammer.js for mobile interactions. Not required for desktop-only apps. -->
     <script src="assets/js/hammer.min.js"></script>
+    <script src="assets/js/tooltip.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
+   <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <script type="text/javascript">
         // Generates some random groups
 
 
 
-var return_first;
-function callback(response) {
-  return_first = response;
-  return return_first;
+  function CreateTableFromJSON(data) {
+      
 
+     /*   // EXTRACT VALUE FOR HTML HEADER. 
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        var col = [];
+        for (var i = 0; i < data.length; i++) {
+            for (var key in data[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        var tr = table.insertRow(-1);                   // TABLE ROW.
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < data.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = data[i][col[j]];
+            }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("side");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);*/
+        uniq_data=uniq(data);
+
+         $('#t1').DataTable( {
+        data: uniq_data,
+        destroy: true,
+        columns: [
+            
+            { 
+         data: "id",
+         render: function(uniq_data, type, row, meta){
+            
+            uniq_data = '<a target="_blank" href="http://st-analyst.rpxcorp.com/#/search/patent/'+uniq_data+'">' + uniq_data + '</a>';
+            
+
+            return uniq_data;
+         }
+      } ,
+      { data: "title"}
+        ]
+    } );
 }
 
         var generate = (function () {
@@ -100,6 +119,7 @@ function callback(response) {
                 }
 
                 var result=[];
+                var pat_record=[];
                 $.ajax(    
                 {
                     url: url,
@@ -108,16 +128,11 @@ function callback(response) {
                     dataType: "json",
                     
                     success: function (data) {
-                        var pat_data = data.response.docs;
+                        pat_data = data.response.docs;
+                        h=data.docs;
+                        debugger
+                        
                         cluster_data = data.clusters;
-
-
-                        var p = pat_data[0].pat_id;
-                        var a = cluster_data[0].labels;
-                        var races = [];
-
-
-
 
 
                         var arrayLength = cluster_data.length;
@@ -147,15 +162,24 @@ function callback(response) {
                                 weight: (expandable ? arrayLength : 1) * cluster_data[i].score,
                                 groups: generate(levels - 1, url, cluster_data[i].docs.toString())
                             });
+                         
                         }
                         
-                      
+
+                    for (var j = 0; j < pat_data.length; j++) {
+
+                         pat_record.push(
+                                {
+                                    id:pat_data[j].patnum,
+                                    title:pat_data[j].title
+                                });}
 
 
                     }
                 });
                 
-                return result;
+                
+                return [result,pat_record];
 
             }
         })();
@@ -171,8 +195,8 @@ function callback(response) {
         		var patents = url.searchParams.get("patents");
         		var portfolio_ids = url.searchParams.get("portfolio_ids");
         		var cluster = url.searchParams.get("cluster");
-        		//var url = 'http://qa-solr-test:8080/solr/patent_cluster/clustering?q=abstract_html_strip:*&rows=100&echoParams=all&wt=json&tr=c2.xsl&clustering.engine=stc&&clustering.engine=stc&STCClusteringAlgorithm.maxBaseClusters=10&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1&fl=pat_id,portfolio_ids';
-        		var url = 'http://qa-solr-test:8080/solr/pat_cluster/clustering?omitHeader=true&echoParams=none&fl=pat_id&q=abstract_html_strip:*&clustering.engine=lingo&LingoClusteringAlgorithm.desiredClusterCountBase=10&rows=3000&wt=json&MinLengthLabelFilter.enabled=true&StopWordLabelFilter.enabled=true&NumericLabelFilter.enabled=true&QueryLabelFilter.enabled=true&GenitiveLabelFilter.enabled=true&CompleteLabelFilter.enabled=true&CaseNormalizer.dfThreshold=3';
+        		//var url = 'http://qa-solr-test:8080/solr/patent_cluster/clustering?q=abstract_html_strip:*&rows=100&echoParams=all&wt=json&tr=c2.xsl&clustering.engine=stc&&clustering.engine=stc&STCClusteringAlgorithm.maxBaseClusters=10&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1&fl=patnum,portfolio_ids';
+        		var url = 'http://qa-solr-test:8080/solr/pat_cluster/clustering?omitHeader=true&echoParams=none&fl=patnum&q=abstract_html_strip:*&clustering.engine=lingo&LingoClusteringAlgorithm.desiredClusterCountBase=10&rows=3000&wt=json&MinLengthLabelFilter.enabled=true&StopWordLabelFilter.enabled=true&NumericLabelFilter.enabled=true&QueryLabelFilter.enabled=true&GenitiveLabelFilter.enabled=true&CompleteLabelFilter.enabled=true&CaseNormalizer.dfThreshold=3';
 
         		if (patents !== null){
         			var pats_list = '\"'+patents.split(',').join('\" OR \"')+'\"';
@@ -190,7 +214,9 @@ function callback(response) {
         */
 
 
-
+function uniq(a) {
+   return Array.from(new Set(a));
+};
 
 
 
@@ -201,6 +227,67 @@ function callback(response) {
         // Initialize FoamTree after the whole page loads to make sure
         // the element has been laid out and has non-zero dimensions.
         window.addEventListener("load", function () {
+            var tooltip = (function() {
+              var tip = new Tooltip("Test", { auto: true });
+          var shown = false;
+          var timeout;
+          var lastShownPageX, lastShownPageY;
+          var pageX, pageY;
+          var currentGroup;
+
+          function hide() {
+            tip.hide();
+            shown = false;
+            window.clearTimeout(timeout);
+          }
+
+           function show() {
+            if (currentGroup && currentGroup.label) {
+                var k=[];
+               
+              for (var x=0;x<currentGroup.docs.length;x++)
+              {
+                  k.push(/:(.+)/.exec(currentGroup.docs[x])[1]);
+              }
+              l=uniq(k);
+              
+              
+
+              // Set some example content on the tooltip.
+              tip.content("<b>Patents Count: " + l.length + "</b>" );
+              tip.position(pageX, pageY);
+              tip.show();
+              lastShownPageX = pageX;
+              lastShownPageY = pageY;
+              shown = true;
+            }
+          }
+
+          function group(g) {
+            currentGroup = g;
+            
+          }
+
+
+           document.body.addEventListener("mousemove", function(e) {
+            pageX = e.pageX;
+            pageY = e.pageY;
+
+            // Hide if the mouse pointer gets farther than 10px from the last tooltip location
+            if (shown && Math.sqrt(Math.pow(pageX - lastShownPageX, 2) + Math.pow(pageY - lastShownPageY, 2)) > 10) {
+              hide();
+            }
+
+            // Show the tooltip after the pointer stops for some time
+            window.clearTimeout(timeout);
+            timeout = window.setTimeout(show, 500)
+          });
+          return {
+            group: group,
+            hide: hide
+          };
+        })();
+
 
 /*
             var url_string = window.location.href;
@@ -208,9 +295,9 @@ function callback(response) {
             var patents = url.searchParams.get("patents");
             var portfolio_ids = url.searchParams.get("portfolio_ids");
             var cluster = url.searchParams.get("cluster");
-            //var url = 'http://qa-solr-test:8080/solr/patent_cluster/clustering?q=abstract_html_strip:*&rows=100&echoParams=all&wt=json&tr=c2.xsl&clustering.engine=stc&&clustering.engine=stc&STCClusteringAlgorithm.maxBaseClusters=10&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1&fl=pat_id,portfolio_ids';*/
+            //var url = 'http://qa-solr-test:8080/solr/patent_cluster/clustering?q=abstract_html_strip:*&rows=100&echoParams=all&wt=json&tr=c2.xsl&clustering.engine=stc&&clustering.engine=stc&STCClusteringAlgorithm.maxBaseClusters=10&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1&fl=patnum,portfolio_ids';*/
             var url =
-                'http://qa-solr-test:8080/solr/pat_cluster/clustering?omitHeader=true&echoParams=none&fl=pat_id&q=abstract_html_strip:*&clustering.engine=lingo&LingoClusteringAlgorithm.desiredClusterCountBase=10&rows=3000&wt=json&MinLengthLabelFilter.enabled=true&StopWordLabelFilter.enabled=true&NumericLabelFilter.enabled=true&QueryLabelFilter.enabled=true&GenitiveLabelFilter.enabled=true&CompleteLabelFilter.enabled=true&CaseNormalizer.dfThreshold=3';
+                'http://qa-solr-test:8080/solr/pat_cluster/clustering?omitHeader=true&echoParams=none&fl=patnum,title&q=abstract_html_strip:*&clustering.engine=lingo&LingoClusteringAlgorithm.desiredClusterCountBase=10&rows=1000&wt=json&MinLengthLabelFilter.enabled=true&StopWordLabelFilter.enabled=true&NumericLabelFilter.enabled=true&QueryLabelFilter.enabled=true&GenitiveLabelFilter.enabled=true&CompleteLabelFilter.enabled=true&CaseNormalizer.dfThreshold=3';
 
 /*
 
@@ -227,7 +314,8 @@ function callback(response) {
                 //console.log(portfolio_ids_fq)
                 url = url + portfolio_ids_fq;
             }*/
-
+           var [clusters_data,patents_data]= generate(1, url,null);
+           CreateTableFromJSON(patents_data);
             var foamtree = new CarrotSearchFoamTree({
                 // Identifier of the HTML element defined above
                 id: "visualization",
@@ -254,7 +342,7 @@ function callback(response) {
 
                 // Generate some initial data
                 dataObject: {
-                    groups: generate(1, url,null)
+                    groups: clusters_data
                 },
 
                 // Use a simple fading animation
@@ -274,6 +362,16 @@ function callback(response) {
                         });
                     }
                 },
+                onGroupHover: function (event) {
+            // Tell the tooltip which group is currently hovered on
+            tooltip.group(event.group);
+            
+          },
+
+         onGroupMouseWheel: tooltip.hide,
+          onGroupExposureChanging: tooltip.hide,
+          onGroupOpenOrCloseChanging: tooltip.hide,
+          maxLabelSizeForTitleBar: 0,
 
                 // Dynamic loading of groups does not play very well with expose.
                 // Therefore, when the user double-clicks a group, initiate data loading
@@ -283,6 +381,7 @@ function callback(response) {
                     var group = e.secondary ? e.bottommostOpenGroup : e.topmostClosedGroup;
                     var toZoom;
                     if (group) {
+                        CreateTableFromJSON(generate(1, url,group.docs.toString())[1]);
                         // Open on left-click, close on right-click
                         if (!e.secondary && group.expandable && !e.group.groups) {
                             loader.load(group);
@@ -334,7 +433,8 @@ function callback(response) {
 
                             // Simulate loading from the server by a timeout
                             window.setTimeout(function () {
-                                group.groups = generate(1, url,group.docs.toString());
+                                [group.groups,pat_record] = generate(1, url,group.docs.toString());
+                                CreateTableFromJSON(pat_record);
                                 
 
                                 // We need to open the group for FoamTree to update its model
