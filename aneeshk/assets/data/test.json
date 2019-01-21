@@ -1,0 +1,73 @@
+/*{
+    "response": {
+        "numFound": 99,
+        "start": 0,
+        "maxScore": 1,
+        "docs": [{
+                "id": "AnalystPat 1:685594",
+                "pat_id": 685594,
+                "account_id": 1,
+                "patnum": "US7966284B2",
+                "title": "Preference setting in a computer system",
+                "abstract_html_strip": "A profile of likelihoods of actions that will occur on a computer is stored. The computer may be likely to be off between time periods, e.g., between midnight and 7 am. Some action is taken relative to the actions that are likely to occur, before those actions actually happen.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622204907202281500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:576823",
+                "pat_id": 576823,
+                "account_id": 1,
+                "patnum": "US7870388B2",
+                "title": "Page encryption system",
+                "abstract_html_strip": "Text containing files are encrypted by first formatting the files for display. The display-formatted files are then run length coded to form files indicating the information. The files are encrypted.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622204814320468000,
+                "score": 1
+            }
+        ]
+    }
+]
+}
+*/
+
+{
+    "groups": [
+      {
+        "Placename":"Alabama",
+        "PlacenameFull":"Alabama",
+        "FIPS":"01",
+        "GNIS":"1779775",
+        "StateAP":"Ala.",
+        "StatePostal":"AL",
+  
+        "PctChange":"0.0747984",
+        "Pop":"4779736",
+  
+        "PctHisp":"0.03883100",
+        "PctNonHisp":"0.96116900",
+        "PctWhite":"0.68526700",
+        "PctNonHispWhite":"0.67041400",
+        "PctBlack":"0.26179500",
+        "PctAmInd":"0.00590400",
+        "PctAsian":"0.01121300",
+        "PctNatHawOth":"0.00064000",
+        "PctTwoOrMore":"0.01490700",
+        "PctOther":"0.02027500",
+        "USATDiversityIndex":"0.48106300",
+  
+        "PopSqMi":"94.40000000",
+  
+        "LandSqMi":"50645.30000000",
+        "WaterSqMi":"1774.70000000",
+        "TotSqMi":"52420.10000000",
+  
+        "Lat":"32.7396323000",
+        "Long":"-86.8434593000",
+        "HousingUnits":"2171853",
+        "PctVacant":"0.13263400"
+      }
