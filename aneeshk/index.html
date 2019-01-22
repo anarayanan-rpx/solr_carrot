@@ -17,8 +17,8 @@
         <div id="visualization"></div>
     </div>
     <div id="side" >
-        <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
-        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css" rel="stylesheet"/>
+        <link href="css/jquery-ui.css" rel="stylesheet"/>
+        <link href="css/dataTables.jqueryui.min.css" rel="stylesheet"/>
             <table id="t1" class="display" width="100%"></table>
     </div>
 
@@ -27,10 +27,10 @@
     <!-- Include Hammer.js for mobile interactions. Not required for desktop-only apps. -->
     <script src="assets/js/hammer.min.js"></script>
     <script src="assets/js/tooltip.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
-   <script src="//code.jquery.com/jquery-3.3.1.js"></script>
-   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+   <script src="js/jquery-3.3.1.js"></script>
+   <script src="js/jquery.dataTables.min.js"></script>
 
     <script type="text/javascript">
         // Generates some random groups
@@ -129,8 +129,8 @@
                     
                     success: function (data) {
                         pat_data = data.response.docs;
-                        h=data.docs;
-                        debugger
+                        
+                        
                         
                         cluster_data = data.clusters;
 
@@ -149,7 +149,7 @@
 
 
 
-                        var count = 5;
+
                         for (var i = 0; i < arrayLength; i++) {
                            
                             
@@ -249,12 +249,12 @@ function uniq(a) {
               {
                   k.push(/:(.+)/.exec(currentGroup.docs[x])[1]);
               }
-              l=uniq(k);
+             // k=uniq(k);
               
               
 
               // Set some example content on the tooltip.
-              tip.content("<b>Patents Count: " + l.length + "</b>" );
+              tip.content("<b>Patents Count: " + k.length + "</b>" );
               tip.position(pageX, pageY);
               tip.show();
               lastShownPageX = pageX;
