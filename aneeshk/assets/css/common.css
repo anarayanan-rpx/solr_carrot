@@ -43,10 +43,10 @@ body.dark #container {
 @media (min-width: 1024px) {
   #container {
     position: absolute;
-    top: 0;
+    top: 100px;
     left: 0;
     right: 450px;
-    bottom: 0;
+    bottom: -97px;
   }
   #visualization {
     position: absolute;

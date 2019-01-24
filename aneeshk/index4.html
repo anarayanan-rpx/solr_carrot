@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Carrot Search FoamTree - Physics-inspired visualization of hierarchical data structures</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css"></link>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+      <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SOLR Carrot2 Word Cloud</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".switch-btn").click(function(){$("#swfcontainer, #wordcloud").toggle();});
+  })
+</script>
+
+<script> 
+    $(function(){
+      $("#includedContent").load("aneeshk/index.html"); 
+    });
+</script>
+
+  <body>
+
+    <div class="inputs">
+<b>
+        <table width="100%" cellspacing="5" border="0">
+            <tr>
+              <td style="width:15%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Algorithm:</td>
+              <td style="width:8%;">
+
+                  <select name="algorithm" id="algorithm" style="width:30%" oninput="check_algo(this)">
+                      <option value="stc">stc</option>
+                      <option value="lingo">lingo</option>
+                      <option value="kmeans">kmeans</option>
+                    </select>
+
+              </td>
+            
+              <td style="display:none;">Host: </td>
+              <td style="display:none;"><input type="text" name="host" id="host" value="qa-solr-test:8080"/></td>
+              <td style="display:none;">Collection:</td>
+              <td style="display:none;"><input type="text" name="collection" id="collection" value="pat_cluster"/></td>
+            
+              <td style="width:9%;">MaxCluster:</td>
+              <td width=10%>
+                  <div class="slidecontainer">
+                      <input type="range" min="5" max="100" value="50" class="slider" id="myRange" style="width:80%" step="5">
+                      
+                    </div>
+              </td>
+              <td style="width:5%;"><p><span id="range_val"></span></p></td>
+            <td style="width:9%;">portfolio_ids:</td>
+            <td>
+             <input type="text" name="portfolio_ids" id="portfolio_ids"/>
+            </td>
+            <td>pat_ids:</td>
+            <td><input type="text" name="pat_ids" id="pat_ids"/></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Query:</td>
+              <td style="width: 16%;">
+                  <input type="text" name="query" id="query" value="abstract_html_strip:*" style="width:80%"/>
+              </td>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Snippet:&nbsp;&nbsp;
+              </td>
+            <td>
+              <input type="text" name="snippet" id="snippet">
+              <!-- value="echoParams=all&wt=xslt&tr=c2.xsl&clustering.engine=stc&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1"-->
+            </td>
+            <td>
+              &nbsp;Row:
+            </td>
+            <td style="width:8%;">
+                <input type="text" name="raw"  id="raw" value=200 style="width:22%;">
+            </td>
+            <td><button name="visualize">Visualize</button></td>
+            <!-- <td>
+              <button id="toggle">Toggle</button>
+            </td> -->
+            <td>
+              <label class="switch">
+                <input type="checkbox">
+                <div class="switch-btn"><span class="on">WordCloud</span><span class="off">FoamTree</span></div>
+              </label>
+            </td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;&nbsp;<input type="checkbox" name="include_abstract" id="include_abstract" value="1"> Include Abstract</td>
+              <td><p name="l1" id="l1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Words Per Label: </p></td>
+              <td colspan="19">
+                  <input type="text" name="c_label_length" id="c_label_length" style="width:3%" value="5">
+              </td>
+            </tr>
+          </table>
+        </b>
+
+      </div>
+
+    <div id="swfcontainer" style="display: none;">
+      <!-- <div id="swf">
+        <div id="alt">To see the visualization, <a href="http://get.adobe.com/flashplayer/">install Adobe Flash Player</a></div>
+      </div> -->
+       <div id="includedContent"></div>
+    </div>
+
+    <div id="wordcloud">
+
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+      <script src="js/scripts.js"></script>
+      <div id="container"></div>
+
+    </div>
+
+
+    <noscript>
+      To use Carrot Search FoamTree, enable JavaScript.
+    </noscript>
+
+    <script type="text/javascript" src="js/swfobject.js"></script>
+    <script type="text/javascript" src="js/carrotsearch.foamtree.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+
+    <script type="text/javascript">//<![CDATA[
+
+
+
+      function check_algo(that) {
+        if (that.value == "stc") {
+            document.getElementById("c_label_length").style.display = "inline";
+            document.getElementById("l1").style.display = "inline";
+        } else if (that.value == "lingo" || that.value == "kmeans"){
+          document.getElementById("c_label_length").style.display = "none";
+          document.getElementById("l1").style.display = "none";
+        }
+        
+    }
+      var slider = document.getElementById("myRange");
+var output = document.getElementById("range_val");
+output.innerHTML = slider.value;
+
+      $(document).ready(function() {
+        var foamtree = new CarrotSearchFoamTree({
+          visualizationSwfLocation: "swf/com.carrotsearch.visualizations.foamtree.swf",
+          flashPlayerInstallerSwfLocation: "swf/playerProductInstall.swf",
+          groupSizeWeighting: "score",
+          id: "swf" // id of the DOM element into which to embed the visualization
+        });
+
+        
+        var fq="";
+        var snippet="";
+        var stc_label_length="";
+        var include_abstract=$("#include_abstract").is(":checked");
+        var include_abstract_url="";
+
+
+        var host=document.getElementById("host").value;
+        var collection=document.getElementById("collection").value;
+        var query=document.getElementById("query").value;
+        var snippet=document.getElementById("snippet").value;
+        var algorithm=document.getElementById("algorithm").value;
+        var cluster_size=document.getElementById("myRange").value;
+        var raw=document.getElementById("raw").value;
+      
+
+        if(document.getElementById("snippet").value != "")
+        {
+          snippet="&"+document.getElementById("snippet").value;
+        }
+        
+        if(document.getElementById("c_label_length").value != "")
+        {
+          stc_label_length="&STCClusteringAlgorithm.maxDescPhraseLength="+document.getElementById("c_label_length").value;
+          
+        }
+
+        if(include_abstract == true)
+        {
+          include_abstract_url="&carrot.snippet=abstract_html_strip";
+          
+        }
+
+
+        if(document.getElementById("pat_ids").value != "")
+        {
+          fq=fq+"&fq=pat_id:("+document.getElementById("pat_ids").value.replace(/,/g, ' OR ')+")";
+        }
+        
+        if(document.getElementById("portfolio_ids").value != "")
+        {
+          fq=fq+"&fq=portfolio_ids:("+document.getElementById("portfolio_ids").value.replace(/,/g, ' OR ')+")";
+           
+        }
+        if (document.getElementById("algorithm").value == "stc")
+        {
+        var url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=stc&STCClusteringAlgorithm.maxClusters="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1&STCClusteringAlgorithm.maxPhraseOverlap=0.60"+stc_label_length+include_abstract_url;
+        }
+        else if(document.getElementById("algorithm").value == "lingo")
+        {
+          var url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=lingo"+"&LingoClusteringAlgorithm.desiredClusterCountBase="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&MinLengthLabelFilter.enabled=true&StopWordLabelFilter.enabled=true&NumericLabelFilter.enabled=true&QueryLabelFilter.enabled=true&GenitiveLabelFilter.enabled=true&CompleteLabelFilter.enabled=true&CaseNormalizer.dfThreshold=3"+include_abstract;
+
+        }
+        else if(document.getElementById("algorithm").value == "kmeans")
+        {
+          var url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=kmeans"+"&BisectingKMeansClusteringAlgorithm.clusterCount="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&BisectingKMeansClusteringAlgorithm.maxIterations=25&TermDocumentMatrixBuilder.titleWordsBoost=2.0&CaseNormalizer.dfThreshold=3"+include_abstract_url;
+        }
+      
+//var url="http://"+$("input[name='host']").val()+"/solr/"+$("input[name='collection']").val()+"/clustering?q="+($("input[name='query']").val());
+        $("button[name = 'visualize']").click(function() {
+
+        fq="";
+        snippet=""
+        stc_label_length="";
+        include_abstract=$("#include_abstract").is(":checked");
+        include_abstract_url="";
+        if(document.getElementById("snippet").value != "")
+        {
+          snippet="&"+document.getElementById("snippet").value;
+        }
+
+      if(document.getElementById("c_label_length").value != "")
+        {
+          stc_label_length="&STCClusteringAlgorithm.maxDescPhraseLength="+document.getElementById("c_label_length").value;
+          
+        }
+
+         if(include_abstract == true)
+        {
+          include_abstract_url="&carrot.snippet=abstract_html_strip";
+        }
+
+
+         if(document.getElementById("pat_ids").value != "")
+        {
+          fq=fq+"&fq=pat_id:("+document.getElementById("pat_ids").value.replace(/,/g, ' OR ')+")";
+        }
+        
+        if(document.getElementById("portfolio_ids").value != "")
+        {
+         
+          fq=fq+"&fq=portfolio_ids:("+document.getElementById("portfolio_ids").value.replace(/,/g, ' OR ')+")"; 
+        }
+
+        
+         
+        host=document.getElementById("host").value;
+        collection=document.getElementById("collection").value;
+        query=document.getElementById("query").value;
+//        snippet=document.getElementById("snippet").value;
+        algorithm=document.getElementById("algorithm").value;
+        cluster_size=document.getElementById("myRange").value;
+        raw=document.getElementById("raw").value;   
+
+        if (document.getElementById("algorithm").value == "stc")
+        {
+    
+         url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=stc&STCClusteringAlgorithm.maxClusters="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1&STCClusteringAlgorithm.maxPhraseOverlap=0.60"+stc_label_length+include_abstract_url;
+        }
+        else if(document.getElementById("algorithm").value == "lingo")
+        {
+           url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=lingo"+"&LingoClusteringAlgorithm.desiredClusterCountBase="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&MinLengthLabelFilter.enabled=true&StopWordLabelFilter.enabled=true&NumericLabelFilter.enabled=true&QueryLabelFilter.enabled=true&GenitiveLabelFilter.enabled=true&CompleteLabelFilter.enabled=true&CaseNormalizer.dfThreshold=3"+include_abstract_url;
+
+        }
+        else if(document.getElementById("algorithm").value == "kmeans")
+        {
+          url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=kmeans"+"&BisectingKMeansClusteringAlgorithm.clusterCount="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&BisectingKMeansClusteringAlgorithm.maxIterations=25&TermDocumentMatrixBuilder.titleWordsBoost=2.0&CaseNormalizer.dfThreshold=3&BisectingKMeansClusteringAlgorithm.labelCount=1"+include_abstract_url;
+        }
+
+          $("#info").fadeOut(500);
+          foamtree.set("dataUrl", url);
+          slider.oninput = function() {
+  output.innerHTML = this.value;
+
+   fq="";
+        snippet=" "
+        stc_label_length="";
+        include_abstract=$("#include_abstract").is(":checked");
+        include_abstract_url="";
+        if(document.getElementById("snippet").value != "")
+        {
+          snippet="\&"+document.getElementById("snippet").value;
+        }
+
+        if(document.getElementById("c_label_length").value != "")
+        {
+          stc_label_length="&STCClusteringAlgorithm.maxDescPhraseLength="+document.getElementById("c_label_length").value;
+          
+        }
+
+        if(include_abstract == true)
+        {
+          include_abstract_url="&carrot.snippet=abstract_html_strip";
+        }
+
+
+         if(document.getElementById("pat_ids").value != "")
+        {
+          fq=fq+"&fq=pat_id:("+document.getElementById("pat_ids").value.replace(/,/g, ' OR ')+")";
+        }
+        
+        if(document.getElementById("portfolio_ids").value != "")
+        {
+         
+          fq=fq+"&fq=portfolio_ids:("+document.getElementById("portfolio_ids").value.replace(/,/g, ' OR ')+")"; 
+        }
+         
+        host=document.getElementById("host").value;
+        collection=document.getElementById("collection").value;
+        query=document.getElementById("query").value;
+//        snippet=document.getElementById("snippet").value;
+        algorithm=document.getElementById("algorithm").value;
+        cluster_size=document.getElementById("myRange").value;
+        raw=document.getElementById("raw").value;        
+        
+        if (document.getElementById("algorithm").value == "stc")
+        {
+         url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=stc&STCClusteringAlgorithm.maxClusters="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1&STCClusteringAlgorithm.maxPhraseOverlap=0.60"+stc_label_length+include_abstract_url;
+        }
+        else if(document.getElementById("algorithm").value == "lingo")
+        {
+           url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=lingo"+"&LingoClusteringAlgorithm.desiredClusterCountBase="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&MinLengthLabelFilter.enabled=true&StopWordLabelFilter.enabled=true&NumericLabelFilter.enabled=true&QueryLabelFilter.enabled=true&GenitiveLabelFilter.enabled=true&CompleteLabelFilter.enabled=true&CaseNormalizer.dfThreshold=3"+include_abstract_url;
+
+        }
+        else if(document.getElementById("algorithm").value == "kmeans")
+        {
+          url="http://"+host+"/solr/"+collection+"/clustering?q="+query+fq+snippet+"&clustering.engine=kmeans"+"&BisectingKMeansClusteringAlgorithm.clusterCount="+cluster_size+"&rows="+raw+"&echoParams=all&wt=xslt&tr=c2.xsl&BisectingKMeansClusteringAlgorithm.maxIterations=25&TermDocumentMatrixBuilder.titleWordsBoost=2.0&CaseNormalizer.dfThreshold=3&BisectingKMeansClusteringAlgorithm.labelCount=1"+include_abstract_url;
+        }
+
+  foamtree.set("dataUrl", url);
+}
+        });
+
+      
+
+        // Link handling
+  //      $("a[rel = 'external']").attr("target", "_blank");
+//        $("a[rel = 'example']").click(function(e) {
+          //$("input[name = 'url']").val(this.href);
+         // e.preventDefault();
+       // });
+      });
+
+     
+
+    //]]></script>
+  </body>
+</html>
+
+
+

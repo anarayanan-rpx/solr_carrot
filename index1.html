@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FoamTree: lazy loading of data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta property="og:image" content="//get.carrotsearch.com/foamtree/latest/demos/assets/img/main-thumbnail.jpg" />
+
+    <meta charset="utf-8" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/common.css" rel="stylesheet" />
+    <link href="assets/css/tooltip.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="inputs" style="height:100px">
+        <table width="100%" cellspacing="5" border="0">
+            <tr>
+              <td style="width:15%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Algorithm:</td>
+              <td style="width:8%;">
+
+                  <select name="algorithm" id="algorithm" style="width:30%" oninput="check_algo(this)">
+                      <option value="stc">stc</option>
+                      <option value="lingo">lingo</option>
+                      <option value="kmeans">kmeans</option>
+                    </select>
+
+              </td>
+
+              <td style="display:none;">Host: </td>
+              <td style="display:none;"><input type="text" name="host" id="host" value="qa-solr-test:8080"/></td>
+              <td style="display:none;">Collection:</td>
+              <td style="display:none;"><input type="text" name="collection" id="collection" value="pat_cluster"/></td>
+
+              <td style="width:9%;">MaxCluster:</td>
+              <td width=10%>
+                  <div class="slidecontainer">
+                      <input type="range" min="5" max="100" value="50" class="slider" id="myRange" style="width:80%" step="5">
+
+                    </div>
+              </td>
+              <td style="width:5%;"><p><span id="range_val"></span></p></td>
+            <td style="width:9%;">portfolio_ids:</td>
+            <td>
+             <input type="text" name="portfolio_ids" id="portfolio_ids"/>
+            </td>
+            <td>pat_ids:</td>
+            <td><input type="text" name="pat_ids" id="pat_ids"/></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Query:</td>
+              <td style="width: 16%;">
+                  <input type="text" name="query" id="query" value="abstract_html_strip:*" style="width:80%"/>
+              </td>
+              <td>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Snippet:&nbsp;&nbsp;
+              </td>
+            <td>
+              <input type="text" name="snippet" id="snippet">
+              <!-- value="echoParams=all&wt=xslt&tr=c2.xsl&clustering.engine=stc&STCClusteringAlgorithm.ignoreWordIfInHigherDocsPercent=0.1"-->
+            </td>
+            <td>
+              &nbsp;Row:
+            </td>
+            <td style="width:8%;">
+                <input type="text" name="raw"  id="raw" value=200 style="width:22%;">
+            </td>
+            <td><button name="visualize">Visualize</button></td>
+            </tr>
+            <tr>
+              <td>&nbsp;&nbsp;&nbsp;<input type="checkbox" name="include_abstract" id="include_abstract" value="1"> Include Abstract</td>
+              <td><p name="l1" id="l1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max Words Per Label: </p></td>
+              <td colspan="19">
+                  <input type="text" name="c_label_length" id="c_label_length" style="width:3%" value="5">
+              </td>
+            </tr>
+          </table>
+
+           <!--<button name="visualize">Visualize</button>-->
+
+
+      </div>
+    <div id="container">
+        <div id="visualization" style="width:82%; height:75%;">
+          <img id="loading-image" src="images/ajax_loader_blue_256.gif" style="width: 70%; height: 80%; top: 50px" alt="Loading..." style="display: none;" />
+        </div>
+    </div>
+    <div id="side" style="width:45%; height:85%; top:37%">
+        <link href="css/jquery-ui.css" rel="stylesheet"/>
+        <link href="css/dataTables.jqueryui.min.css" rel="stylesheet"/>
+            <table id="t1" class="display" width="100%"></table>
+    </div>
+
+    <script src="js/carrotsearch.foamtree.js"></script>
+
+    <!-- Include Hammer.js for mobile interactions. Not required for desktop-only apps. -->
+    <script src="assets/js/hammer.min.js"></script>
+    <script src="assets/js/tooltip.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+   <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
+   <script src="js/jquery-3.3.1.js"></script>
+   <script src="js/jquery.dataTables.min.js"></script>
+   <script src="js/chartdata.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $('#loading-image').hide();
+          $("button[name = 'visualize']").click(function() {
+             $('#loading-image').show();
+            var url = get_solr_url();
+            get_cluster_data_and_tree(url);
+          });
+        });
+    </script>
+</body>
+</html>
