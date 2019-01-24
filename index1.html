@@ -82,10 +82,10 @@
       </div>
     <div id="container">
         <div id="visualization" style="width:82%; height:75%;">
-          <img id="loading-image" src="images/ajax_loader_blue_256.gif" style="width: 70%; height: 80%; top: 50px" alt="Loading..." style="display: none;" />
+          <!-- <img id="loading-image" src="images/ajax_loader_blue_256.gif" style="width: 70%; height: 80%; top: 50px" alt="Loading..." style="display: none;" /> -->
         </div>
     </div>
-    <div id="side" style="width:45%; height:85%; top:37%">
+    <div id="side" style="width:44%; height:88%; top:18.2%; left: 55%">
         <link href="css/jquery-ui.css" rel="stylesheet"/>
         <link href="css/dataTables.jqueryui.min.css" rel="stylesheet"/>
             <table id="t1" class="display" width="100%"></table>
@@ -106,9 +106,9 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#loading-image').hide();
+          // $('#loading-image').hide();
           $("button[name = 'visualize']").click(function() {
-             $('#loading-image').show();
+             // $('#loading-image').show();
             var url = get_solr_url();
             get_cluster_data_and_tree(url);
           });
