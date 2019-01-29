@@ -18,6 +18,20 @@
 
 
     <style>
+        input {
+    color: black;
+
+}
+html,body{
+    height:-webkit-fill-available;
+    width: -webkit-fill-available;
+    
+}
+    
+#visualization{
+    height: 78vh;
+    
+}
         .slidecontainer {
   width: 100%; /* Width of the outside container */
 }
@@ -28,9 +42,9 @@
   appearance: none;
   width: 100%; /* Full-width */
   height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
+  background: #f8f8f8; /* Grey background */
   outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
 }
@@ -46,14 +60,14 @@
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
+  background: rgb(0, 68, 195); /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #4CAF50; /* Green background */
+  background: rgb(0, 68, 195); /* Green background */
   cursor: pointer; /* Cursor on hover */
 }
 .row{
@@ -66,20 +80,51 @@
 .table-cell-edit{
     background-color: lightgoldenrodyellow;
 }
+
+   #loading {
+   width: 50%;
+   height: 35%;
+   top: 25%;
+   left: 0;
+   position: absolute;
+   display:block;
+   opacity: 0.5;
+   z-index: 99;
+   text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+   top: 70%; 
+   height: 30%; 
+   left: 90%;
+  z-index: 100;
+}
+select {
+  font-family: Cursive;
+  font-size: 15px;
+  background-color:white;
+  color:black;
+  
+}
   </style>
 </head>
 
-<body background="bg.jpg">
+<body style="background-image: linear-gradient(rgb(0, 0, 0), rgb(26, 35, 85));">
 
-    <div class="container-fluid">
-        <h1> </h1>
 
-        <div class="row">
+    <div class="img-fluid" id="loading" style="display:absolute">
+        <img id="loading-image" src="loader/loader.gif" alt="Loading..." />
+    </div>
+
+    <div class="container-fluid input-sm" id="main_c" style="width:100%;height:100%">
+        <h4> </h4>
+        <div class="row" style="width:100%;height:5%">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-sm-2">
-                        <div class="dropdown">
-                            <select name="algorithm" id="algorithm" style="width:30%" oninput="check_algo(this)">
+                    <div class="col-sm-2" style="width:10%">
+                        <div class="search_categories">
+                            <select class="select input-sm" name="algorithm" id="algorithm" style="width:100%" oninput="check_algo(this)">
                                 <option value="stc">stc</option>
                                 <option value="lingo">lingo</option>
                                 <option value="kmeans">kmeans</option>
@@ -87,96 +132,105 @@
                         </div>
 
                     </div>
-                    <div class="col-sm-4">
-                        <label class="control-label col-sm-4">MaxCluster :</label>
-                        <div class="col-sm-7">
+                    <div class="col-sm-3">
+                        <label class="control-label col-sm-1 input-sm" data-toggle="tooltip" title="Maximum Number of cluster to be displayed! (Note in STC case The number of clusters created by the algorithm will be proportional to this input)" style="width:30%;">MaxCluster :</label>
+                        
+                        <div class="col-sm-6">
                             <div class="slidecontainer">
-                                <input type="range" min="5" max="100" value="50" class="slider" id="myRange" style="width:80%"
+                                <input type="range" min="5" max="100" value="50" class="slider" id="myRange" style="width:100%"
                                     step="5" oninput="get_range_val()">
 
 
                             </div>
                         </div>
                         <div class="col-sm-1">
-                            <label class="control-label col-sm-1" id="range_val"></label>
+                            <label class="control-label" id="range_val"></label>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3" style="width:25%">
+
+                        <label class="control-label col-sm-5" style="width: 34%">Portfolio ids:</label>
+                        <div class="col-sm-7" style="width:66%">
+                            <input type="text" class="form-control input-sm" name="portfolio_ids" id="portfolio_ids"
+                                value="501584" />
                         </div>
 
                     </div>
                     <div class="col-sm-3">
-
-                        <label class="control-label col-sm-5">Portfolio ids:</label>
+                        <label class="control-label col-sm-5" style="width:26%;">Pat ids:</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="portfolio_ids" id="portfolio_ids" />
-                        </div>
-
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="control-label col-sm-5">Pat ids:</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" name="pat_ids" id="pat_ids" />
+                            <input type="text" class="form-control input-sm" name="pat_ids" id="pat_ids" />
                         </div>
                     </div>
-                </div>
-            </form>
-        </div>
-        <div class="row">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-sm-4">
-                        <label class="control-label col-sm-2">Query:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="query" id="query" value="abstract_html_strip:*" />
-                        </div>
-
-                    </div>
-                    <div class="col-sm-4">
-                        <label class="control-label col-sm-2">Snippet:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="snippet" id="snippet" />
-                        </div>
-
-                    </div>
-                    <div class="col-sm-2">
-                        <label class="control-label col-sm-4">Row:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name="raw" id="raw" value="1000" />
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <button type="button" class="btn btn-primary" id="visualize" name="visualize">Visualize</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="row">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-sm-2">
+                    <div class="col-sm-1" style="width:11%;">
                         <div class="checkbox">
-                            <label><input type="checkbox" name="include_abstract" id="include_abstract" value="1"><b>Include
+                            <label><input type="checkbox" name="include_abstract" id="include_abstract" value="1" data-toggle="tooltip" title="Allow algorithm to use patent abstract text also for forming the clusters"><b>Include
                                     Abstract</b></label>
                         </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="control-label col-sm-8" id="l1">MaxWordsPerLabel</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="MaxWordsPerLabel" id="MaxWordsPerLabel" />
-                        </div>
+
                     </div>
                 </div>
+
+            </form>
+        </div>
+        <div class="row">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-3" style="width:29%">
+                        <label class="control-label col-sm-2">Query:</label>
+                        <div class="col-sm-10" style="width:80%">
+                            <input type="text" class="form-control input-sm" name="query" id="query" value="abstract_html_strip:*"
+                                style="width:100%" />
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="control-label col-sm-1" style="width: 23%">Snippet:</label>
+                        <div class="col-sm-11" style="width:70%">
+                            <input type="text" class="form-control input-sm" name="snippet" id="snippet" />
+                        </div>
+
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label col-sm-2" style="width:23%">Row:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input-sm" name="raw" id="raw" value="100" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-3 input-sm" style="width:16%">
+
+                        <label class="control-label col-sm-6" id="l1" style="width:50%" data-toggle="tooltip" title="Maximum Words Per Label(STC)">M.W.Label :</label>
+                        <div class="col-sm-6" style="width:49%">
+                            <input type="text" class="form-control input-sm" name="MaxWordsPerLabel" id="MaxWordsPerLabel"
+                                value="3" style="width:100%;" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-1" style="width:10%;">
+                        <button type="button" class="btn btn-primary" id="visualize" name="visualize" style="width:100%;">Visualize</button>
+
+                    </div>
+
+                </div>
+
+
             </form>
 
         </div>
-
         <div class="row">
             <form class="form-horizontal">
                 <div class="form-group">
 
                     <div class="col-sm-12">
 
-                        <div class="col-sm-8">
+                        <div class="col-sm-8" style="height:fit-content">
                             <div id="container">
-                                <div id="visualization" style="position: relative;;height:-webkit-fill-available;width:-webkit-fill-available;"></div>
+                                <div id="visualization"></div>
 
 
                             </div>
@@ -210,22 +264,7 @@
 
 
 
- function get_sorted_array(pat_data,group_ids)
-        {
-            var s_array=[];
-            for(var i=0;i<pat_data.length;i++)
-            {
-                for(var j=0;j<group_ids.length;j++)
-                {
-                    if (group_ids[j]==pat_data[i].id)
-                    {
-                        s_array.push({id:pat_data[i].patnum,title:pat_data[i].title});                    }
-                }
 
-            }
-            debugger
-            return s_array;
-        }
 
         function get_range_val() {
             var slider = document.getElementById("myRange");
@@ -327,7 +366,7 @@
                 destroy: true,
                 columns: [
 
-                    {
+                    {   title:"patnum",
                         data: "id",
                         render: function (uniq_data, type, row, meta) {
 
@@ -339,16 +378,35 @@
                             return uniq_data;
                         }
                     },
-                    {
+                    {   title:"title",
                         data: "title"
                     }
-                ]
+                ],
+                scrollY: '70vh'
             });
         };
 
         function uniq(a) {
             return Array.from(new Set(a));
         };
+
+
+        function get_sorted_array(pat_data, group_ids) {
+            var s_array = [];
+            for (var i = 0; i < pat_data.length; i++) {
+                for (var j = 0; j < group_ids.length; j++) {
+                    if (group_ids[j] == pat_data[i].id) {
+                        s_array.push({
+                            id: pat_data[i].patnum,
+                            title: pat_data[i].title
+                        });
+                    }
+                }
+
+            }
+
+            return s_array;
+        }
 
         var generate = (function () {
             var number = 0;
@@ -401,11 +459,11 @@
                         for (var i = 0; i < arrayLength; i++) {
 
 
-                            var expandable = cluster_data[i].docs.length > 20 && cluster_data[i]
-                                .labels != "Other Topics";
+                            var expandable = cluster_data[i].docs.length > 10;
                             var sub_group = cluster_data[i].labels[0];
                             result.push({
-                                label: sub_group,
+                                label: sub_group + "(" + cluster_data[i].docs.length +
+                                    ")",
                                 docs: cluster_data[i].docs,
                                 expandable: expandable,
                                 weight: (expandable ? arrayLength : 1) * cluster_data[i]
@@ -438,25 +496,27 @@
 
 
 
-
         $(document).ready(function () {
+            var label = "";
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("range_val");
+            output.innerHTML = slider.value;
+
+            $(document).ajaxStart(function () {
+                $('.img-fluid').show();
+                $('#main_c').css("opacity", 0.4);
+            });
+
+            $(document).ajaxComplete(function () {
+                $('.img-fluid').hide();
+                $('#main_c').css("opacity", 1);
+            });
+
 
 
 
             var url = get_solr_url();
-
-
-            $("button[name = 'visualize']").click(function () {
-                url = get_solr_url();
-                var [clusters_data, patents_data] = generate(1, url, null);
-                //foamtree.reset();
-                foamtree.set({
-                    dataObject: {
-                        groups: clusters_data
-                    }
-                });
-            });
-
+            levels = 1;
 
 
             var tooltip = (function () {
@@ -487,7 +547,7 @@
 
 
                         // Set some example content on the tooltip.
-                        tip.content("<b>Patents Count: " + k.length + "</b>");
+                        tip.content("<b>" + currentGroup.tooltip_label + "</b>");
                         tip.position(pageX, pageY);
                         tip.show();
                         lastShownPageX = pageX;
@@ -523,225 +583,462 @@
             })();
 
 
-          
-
-
-            debugger
-
-            var [clusters_data, patents_data] = generate(1, url, null);
-            CreateTableFromJSON(patents_data);
 
 
 
 
-            var foamtree = new CarrotSearchFoamTree({
-                // Identifier of the HTML element defined above
-                id: "visualization",
+            var result = [];
+            var pat_record = [];
 
-                // Remove restriction on the minimum group diameter, so that
-                // we can render as many diagram levels as possible.
-                groupMinDiameter: 0,
+            $.ajax({
+                url: url,
+                async: true,
+                type: "GET",
+                dataType: "json",
 
-                // Lower the minimum label font size a bit to show more labels.
-                groupLabelMinFontSize: 3,
+                success: function (data) {
+                    pat_data = data.response.docs;
+                    all_pat_data = pat_data;
+                    cluster_data = data.clusters;
+                    var arrayLength = cluster_data.length;
+                    for (var i = 0; i < arrayLength; i++) {
+                        var expandable = cluster_data[i].docs.length > 10 && get_sorted_array(
+                            all_pat_data, pat_data).length != cluster_data[i].docs.length;
+                        var sub_group = cluster_data[i].labels[0];
+                        var group_label = sub_group + "(" + cluster_data[i].docs.length + ")";
+                        var tooltip_label = group_label;
+                        result.push({
+                            label: group_label,
+                            tooltip_label: tooltip_label,
+                            docs: cluster_data[i].docs,
+                            expandable: expandable,
+                            weight: (expandable ? arrayLength : 1) * cluster_data[i]
+                                .score,
+                            groups: generate(levels - 1, url, cluster_data[i].docs.toString())
+                        });
 
-                // Disable rounded corners, deeply-nested groups
-                // will look much better and render faster.
-                groupBorderRadius: 0,
+                    }
 
-                // Lower the parent group opacity, so that lower-level groups show through.
-                parentFillOpacity: 0.5,
 
-                // Lower the border radius a bit to fit more groups.
-                groupBorderWidth: 2,
-                groupInsetWidth: 3,
-                groupSelectionOutlineWidth: 1,
-                groupBorderWidthScaling: 0.25,
+                    for (var j = 0; j < pat_data.length; j++) {
 
-                // Generate some initial data
-                dataObject: {
-                    groups: clusters_data
-                },
-
-                // Use a simple fading animation
-                rolloutDuration: 0,
-                pullbackDuration: 0,
-
-                // When the user holds the mouse button over a group,
-                // load the data if needed.
-                onGroupHold: function (e) {
-                    if (!e.secondary && e.group.expandable && !e.group.groups) {
-                        loader.load(e.group);
-
-                    } else {
-                        this.open({
-                            groups: e.group,
-                            open: !e.secondary
+                        pat_record.push({
+                            id: pat_data[j].patnum,
+                            title: pat_data[j].title
                         });
                     }
-                },
-                onGroupHover: function (event) {
-                    // Tell the tooltip which group is currently hovered on
-                    tooltip.group(event.group);
+                    CreateTableFromJSON(pat_record);
+                    var foamtree = new CarrotSearchFoamTree({
+                        // Identifier of the HTML element defined above
+                        id: "visualization",
 
-                },
+                        // Remove restriction on the minimum group diameter, so that
+                        // we can render as many diagram levels as possible.
+                        groupMinDiameter: 0,
 
-                onGroupMouseWheel: tooltip.hide,
-                onGroupExposureChanging: tooltip.hide,
-                onGroupOpenOrCloseChanging: tooltip.hide,
-                maxLabelSizeForTitleBar: 0,
+                        // Lower the minimum label font size a bit to show more labels.
+                        groupLabelMinFontSize: 3,
 
-                // Dynamic loading of groups does not play very well with expose.
-                // Therefore, when the user double-clicks a group, initiate data loading
-                // if needed and zoom in to the group.
-                onGroupDoubleClick: function (e) {
-                    e.preventDefault();
-                    var group = e.secondary ? e.bottommostOpenGroup : e.topmostClosedGroup;
-                    var toZoom;
-                    if (group) {
-                        CreateTableFromJSON(generate(1, url, group.docs.toString())[1]);
-                        // Open on left-click, close on right-click
-                        if (!e.secondary && group.expandable && !e.group.groups) {
-                            loader.load(group);
-                        } else {
-                            this.open({
-                                groups: group,
-                                open: !e.secondary
-                            });
+                        // Disable rounded corners, deeply-nested groups
+                        // will look much better and render faster.
+                        groupBorderRadius: 0,
+
+                        // Lower the parent group opacity, so that lower-level groups show through.
+                        parentFillOpacity: 0.5,
+
+                        // Lower the border radius a bit to fit more groups.
+                        groupBorderWidth: 2,
+                        groupInsetWidth: 3,
+                        groupSelectionOutlineWidth: 1,
+                        groupBorderWidthScaling: 0.25,
+
+                        // Generate some initial data
+                        dataObject: {
+                            groups: result
+                        },
+
+                        // Use a simple fading animation
+                        rolloutDuration: 0,
+                        pullbackDuration: 0,
+
+                        // When the user holds the mouse button over a group,
+                        // load the data if needed.
+                        onGroupHold: function (e) {
+                            if (!e.secondary && e.group.expandable && !e.group.groups) {
+                                loader.load(e.group);
+
+                            } else {
+                                this.open({
+                                    groups: e.group,
+                                    open: !e.secondary
+                                });
+                            }
+                        },
+                        onGroupHover: function (event) {
+                            // Tell the tooltip which group is currently hovered on
+                            tooltip.group(event.group);
+
+                        },
+
+                        onGroupMouseWheel: tooltip.hide,
+                        onGroupExposureChanging: tooltip.hide,
+                        onGroupOpenOrCloseChanging: tooltip.hide,
+                        maxLabelSizeForTitleBar: 0,
+
+                        // Dynamic loading of groups does not play very well with expose.
+                        // Therefore, when the user double-clicks a group, initiate data loading
+                        // if needed and zoom in to the group.
+                        onGroupDoubleClick: function (e) {
+                            e.preventDefault();
+                            var group = e.secondary ? e.bottommostOpenGroup : e.topmostClosedGroup;
+                            var toZoom;
+                            if (group) {
+
+                                //CreateTableFromJSON(generate(1, url, group.docs.toString())[1]);
+
+                                CreateTableFromJSON(get_sorted_array(all_pat_data,
+                                    group.docs));
+                                // Open on left-click, close on right-click
+                                if (!e.secondary && group.expandable && !e.group.groups) {
+                                    loader.load(group);
+                                } else {
+                                    this.open({
+                                        groups: group,
+                                        open: !e.secondary
+                                    });
+                                }
+
+                                toZoom = e.secondary ? group.parent : group;
+                            } else {
+                                toZoom = this.get("dataObject");
+                            }
+                            this.zoom(toZoom);
+                        },
+
+                        // Display a "+" if a group can be expanded
+                        groupLabelDecorator: function (opts, params, vars) {
+                            if (params.group.expandable && !params.group.groups) {
+                                vars.labelText += "\u00a0\u00bb";
+                            }
+                            if (params.group.groups && params.browseable === false) {
+                                vars.labelText += "\u00a0\u00bb\u00bb";
+                            }
                         }
-                        toZoom = e.secondary ? group.parent : group;
-                    } else {
-                        toZoom = this.get("dataObject");
-                    }
-                    this.zoom(toZoom);
-                },
+                    });
 
-                // Display a "+" if a group can be expanded
-                groupLabelDecorator: function (opts, params, vars) {
-                    if (params.group.expandable && !params.group.groups) {
-                        vars.labelText += "\u00a0\u00bb";
-                    }
-                    if (params.group.groups && params.browseable === false) {
-                        vars.labelText += "\u00a0\u00bb\u00bb";
-                    }
+                    // Resize FoamTree on orientation change
+                    window.addEventListener("orientationchange", foamtree.resize);
+
+                    // Resize on window size changes
+                    window.addEventListener("resize", (function () {
+                        var timeout;
+                        return function () {
+                            window.clearTimeout(timeout);
+                            timeout = window.setTimeout(foamtree.resize, 300);
+                        }
+                    })());
+
+                    $("button[name = 'visualize']").click(function () {
+                        url = get_solr_url();
+                        var pat_record = [];
+                        var result = [];
+                        $.ajax({
+                            url: url,
+                            async: true,
+                            type: "GET",
+                            dataType: "json",
+
+                            success: function (data) {
+                                pat_data = data.response.docs;
+                                all_pat_data = pat_data;
+                                cluster_data = data.clusters;
+                                var arrayLength = cluster_data.length;
+                                for (var i = 0; i < arrayLength; i++) {
+                                    var expandable = cluster_data[i].docs.length >
+                                        10;
+                                    var sub_group = cluster_data[i].labels[0];
+                                    var group_label = sub_group + "(" +
+                                        cluster_data[i].docs.length + ")";
+                                    var tooltip_label = group_label;
+                                    result.push({
+                                        label: group_label,
+                                        tooltip_label: tooltip_label,
+                                        docs: cluster_data[i].docs,
+                                        expandable: expandable,
+                                        weight: (expandable ?
+                                                arrayLength : 1) *
+                                            cluster_data[i]
+                                            .score,
+                                        groups: generate(levels - 1,
+                                            url, cluster_data[i].docs
+                                            .toString())
+                                    });
+
+                                }
+
+
+                                for (var j = 0; j < pat_data.length; j++) {
+
+                                    pat_record.push({
+                                        id: pat_data[j].patnum,
+                                        title: pat_data[j].title
+                                    });
+                                }
+
+
+                                //var [clusters_data, patents_data] = generate(1, url, null);
+                                //foamtree.reset();
+                                foamtree.set({
+                                    dataObject: {
+                                        groups: result
+                                    }
+                                });
+                                CreateTableFromJSON(pat_record);
+                            }
+                        });
+                    });
+
+
+
+                    //
+                    // A simple utility for simulating the Ajax loading of data
+                    // and updating FoamTree with the newly loaded data.
+                    //
+                    var loader = (function (foamtree) {
+                        return {
+                            load: function (group) {
+                                if (!group.groups && !group.loading) {
+                                    spinner.start(group);
+
+                                    // Simulate loading from the server by a timeout
+                                    window.setTimeout(function () {
+                                        if (group.docs.toString() !== null) {
+
+                                            var pats_list = '\"' + group.docs.toString()
+                                                .split(',').join('\" OR \"') +
+                                                '\"';
+                                            var patents_fq = '&fq=id:(' +
+                                                pats_list + ')';
+                                            //console.log(patents_fq)
+                                            url = get_solr_url();
+                                            url = url + patents_fq;
+
+
+                                        }
+
+
+                                        debugger
+                                        var tooltip_label = group.tooltip_label;
+                                        tooltip_label = tooltip_label;
+                                        var result2 = [];
+                                        var pat_record2 = [];
+
+                                        $.ajax({
+                                            url: url,
+                                            async: true,
+                                            type: "GET",
+                                            dataType: "json",
+
+                                            success: function (data) {
+
+                                                pat_data2 = data.response
+                                                    .docs;
+                                                cluster_data2 =
+                                                    data.clusters;
+
+                                                var arrayLength2 =
+                                                    cluster_data2.length;
+                                                for (var i = 0; i <
+                                                    arrayLength2; i++
+                                                ) {
+
+
+                                                    var expandable =
+                                                        cluster_data2[
+                                                            i].docs
+                                                        .length >
+                                                        10 &&
+                                                        get_sorted_array(
+                                                            all_pat_data,
+                                                            group.docs
+                                                        ).length !=
+                                                        cluster_data2[
+                                                            i].docs
+                                                        .length;
+                                                    var sub_group =
+                                                        cluster_data2[
+                                                            i].labels[
+                                                            0];
+                                                    result2.push({
+                                                        label: sub_group +
+                                                            "(" +
+                                                            cluster_data2[
+                                                                i
+                                                            ]
+                                                            .docs
+                                                            .length +
+                                                            ")",
+                                                        tooltip_label: tooltip_label +
+                                                            "&nbsp;&nbsp;-->&nbsp;&nbsp;" +
+                                                            sub_group +
+                                                            "(" +
+                                                            cluster_data2[
+                                                                i
+                                                            ]
+                                                            .docs
+                                                            .length +
+                                                            ")",
+                                                        docs: cluster_data2[
+                                                                i
+                                                            ]
+                                                            .docs,
+                                                        expandable: expandable,
+                                                        weight: (
+                                                                expandable ?
+                                                                arrayLength2 :
+                                                                1
+                                                            ) *
+                                                            cluster_data2[
+                                                                i
+                                                            ]
+                                                            .score,
+                                                        groups: generate(
+                                                            levels -
+                                                            1,
+                                                            url,
+                                                            cluster_data2[
+                                                                i
+                                                            ]
+                                                            .docs
+                                                            .toString()
+                                                        )
+                                                    });
+
+                                                }
+
+
+                                                for (var j = 0; j <
+                                                    pat_data2.length; j++
+                                                ) {
+
+                                                    pat_record2.push({
+                                                        id: pat_data2[
+                                                                j
+                                                            ]
+                                                            .patnum,
+                                                        title: pat_data2[
+                                                                j
+                                                            ]
+                                                            .title
+                                                    });
+                                                }
+
+
+                                                group.groups =
+                                                    result2;
+                                                //foamtree.redraw(true, group.groups);   
+
+                                                CreateTableFromJSON
+                                                    (pat_record2);
+
+
+
+                                                // We need to open the group for FoamTree to update its model
+                                                foamtree.open({
+                                                    groups: group,
+                                                    open: true
+                                                }).then(
+                                                    function () {
+                                                        spinner
+                                                            .stop(
+                                                                group
+                                                            );
+                                                    });
+                                            }
+                                        });
+                                    }, 500 + 1500 * Math.random());
+                                }
+                            }
+                        };
+                    })(foamtree);
+
+                    //
+                    // A simple utility for starting and stopping spinner animations
+                    // inside groups to show that some content is loading.
+                    //
+                    var spinner = (function (foamtree) {
+                        // Set up a groupContentDecorator that draws the loading spinner
+                        foamtree.set("wireframeContentDecorationDrawing", "always");
+                        foamtree.set("groupContentDecoratorTriggering", "onSurfaceDirty");
+                        foamtree.set("groupContentDecorator", function (opts, props, vars) {
+                            var group = props.group;
+                            if (!group.loading) {
+                                return;
+                            }
+
+                            // Draw the spinner animation
+
+                            // The center of the polygon
+                            var cx = props.polygonCenterX;
+                            var cy = props.polygonCenterY;
+
+                            // Drawing context
+                            var ctx = props.context;
+
+                            // We'll advance the animation based on the current time
+                            var now = Date.now();
+
+                            // Some simple fade-in of the spinner
+                            var baseAlpha = 0.3;
+                            if (now - group.loadingStartTime < 500) {
+                                baseAlpha *= Math.pow((now - group.loadingStartTime) /
+                                    500, 2);
+                            }
+
+                            // If polygon changed, recompute the radius of the spinner
+                            if (props.shapeDirty || group.spinnerRadius ==
+                                undefined) {
+                                // If group's polygon changed, recompute the radius of the inscribed polygon.
+                                group.spinnerRadius = CarrotSearchFoamTree.geometry
+                                    .circleInPolygon(props.polygon, cx,
+                                        cy) * 0.4;
+                            }
+
+                            // Draw the spinner
+                            var angle = 2 * Math.PI * (now % 1000) / 1000;
+                            ctx.globalAlpha = baseAlpha;
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, group.spinnerRadius, angle, angle +
+                                Math.PI / 5, true);
+                            ctx.strokeStyle = "black";
+                            ctx.lineWidth = group.spinnerRadius * 0.3;
+                            ctx.stroke();
+
+                            // Schedule the group for redrawing
+                            foamtree.redraw(true, group);
+                        });
+
+                        return {
+                            start: function (group) {
+                                group.loading = true;
+                                group.loadingStartTime = Date.now();
+
+                                // Initiate the spinner animation
+                                foamtree.redraw(true, group);
+                            },
+
+                            stop: function (group) {
+                                group.loading = false;
+                            }
+                        };
+                    })(foamtree);
+
+
                 }
             });
 
-            // Resize FoamTree on orientation change
-            window.addEventListener("orientationchange", foamtree.resize);
-
-            // Resize on window size changes
-            window.addEventListener("resize", (function () {
-                var timeout;
-                return function () {
-                    window.clearTimeout(timeout);
-                    timeout = window.setTimeout(foamtree.resize, 300);
-                }
-            })());
-
-            //
-            // A simple utility for simulating the Ajax loading of data
-            // and updating FoamTree with the newly loaded data.
-            //
-            var loader = (function (foamtree) {
-                return {
-                    load: function (group) {
-                        if (!group.groups && !group.loading) {
-                            spinner.start(group);
-
-                            // Simulate loading from the server by a timeout
-                            window.setTimeout(function () {
-                                [group.groups, pat_record] = generate(1, url, group.docs.toString());
-                                CreateTableFromJSON(pat_record);
 
 
-                                // We need to open the group for FoamTree to update its model
-                                foamtree.open({
-                                    groups: group,
-                                    open: true
-                                }).then(function () {
-                                    spinner.stop(group);
-                                });
-                            }, 500 + 1500 * Math.random());
-                        }
-                    }
-                };
-            })(foamtree);
-
-            //
-            // A simple utility for starting and stopping spinner animations
-            // inside groups to show that some content is loading.
-            //
-            var spinner = (function (foamtree) {
-                // Set up a groupContentDecorator that draws the loading spinner
-                foamtree.set("wireframeContentDecorationDrawing", "always");
-                foamtree.set("groupContentDecoratorTriggering", "onSurfaceDirty");
-                foamtree.set("groupContentDecorator", function (opts, props, vars) {
-                    var group = props.group;
-                    if (!group.loading) {
-                        return;
-                    }
-
-                    // Draw the spinner animation
-
-                    // The center of the polygon
-                    var cx = props.polygonCenterX;
-                    var cy = props.polygonCenterY;
-
-                    // Drawing context
-                    var ctx = props.context;
-
-                    // We'll advance the animation based on the current time
-                    var now = Date.now();
-
-                    // Some simple fade-in of the spinner
-                    var baseAlpha = 0.3;
-                    if (now - group.loadingStartTime < 500) {
-                        baseAlpha *= Math.pow((now - group.loadingStartTime) /
-                            500, 2);
-                    }
-
-                    // If polygon changed, recompute the radius of the spinner
-                    if (props.shapeDirty || group.spinnerRadius ==
-                        undefined) {
-                        // If group's polygon changed, recompute the radius of the inscribed polygon.
-                        group.spinnerRadius = CarrotSearchFoamTree.geometry
-                            .circleInPolygon(props.polygon, cx,
-                                cy) * 0.4;
-                    }
-
-                    // Draw the spinner
-                    var angle = 2 * Math.PI * (now % 1000) / 1000;
-                    ctx.globalAlpha = baseAlpha;
-                    ctx.beginPath();
-                    ctx.arc(cx, cy, group.spinnerRadius, angle, angle +
-                        Math.PI / 5, true);
-                    ctx.strokeStyle = "black";
-                    ctx.lineWidth = group.spinnerRadius * 0.3;
-                    ctx.stroke();
-
-                    // Schedule the group for redrawing
-                    foamtree.redraw(true, group);
-                });
-
-                return {
-                    start: function (group) {
-                        group.loading = true;
-                        group.loadingStartTime = Date.now();
-
-                        // Initiate the spinner animation
-                        foamtree.redraw(true, group);
-                    },
-
-                    stop: function (group) {
-                        group.loading = false;
-                    }
-                };
-            })(foamtree);
-
-            var [clusters_data, patents_data] = generate(1, url, null);
-            CreateTableFromJSON(patents_data);
-            debugger
 
         });
     </script>

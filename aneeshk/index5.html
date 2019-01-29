@@ -18,11 +18,18 @@
 
 
     <style>
+input {
+    color: black;
 
-
+}
+html,body{
+    height:-webkit-fill-available;
+    width: -webkit-fill-available;
+    
+}
     
 #visualization{
-    height: 70vh;
+    height: 74vh;
     
 }
         .slidecontainer {
@@ -90,7 +97,7 @@
   position: absolute;
    top: 70%; 
    height: 30%; 
-   left: 100%;
+   left: 90%;
   z-index: 100;
 }
 select {
@@ -115,9 +122,9 @@ select {
         <div class="row" style="width:100%;height:5%">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-sm-2">
+                    <div class="col-sm-2" style="width:10%">
                         <div class="search_categories">
-                            <select class="select input-sm" name="algorithm" id="algorithm" style="width:50%" oninput="check_algo(this)">
+                            <select class="select input-sm" name="algorithm" id="algorithm" style="width:100%" oninput="check_algo(this)">
                                 <option value="stc">stc</option>
                                 <option value="lingo">lingo</option>
                                 <option value="kmeans">kmeans</option>
@@ -126,10 +133,10 @@ select {
 
                     </div>
                     <div class="col-sm-4">
-                        <label class="control-label col-sm-4 input-sm">MaxCluster :</label>
+                        <label class="control-label col-sm-4 input-sm" style="width:30%;">MaxCluster :</label>
                         <div class="col-sm-7">
                             <div class="slidecontainer">
-                                <input type="range" min="5" max="100" value="50" class="slider" id="myRange" style="width:80%"
+                                <input type="range" min="5" max="100" value="50" class="slider" id="myRange" style="width:100%"
                                     step="5" oninput="get_range_val()">
 
 
@@ -140,17 +147,17 @@ select {
                         </div>
 
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-3" style="width:26%">
 
-                        <label class="control-label col-sm-5">Portfolio ids:</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control input-sm" name="portfolio_ids" id="portfolio_ids" />
+                        <label class="control-label col-sm-5" style="width: 34%">Portfolio ids:</label>
+                        <div class="col-sm-7" style="width:66%">
+                            <input type="text" class="form-control input-sm" name="portfolio_ids" id="portfolio_ids" value="501584" />
                         </div>
 
                     </div>
                     <div class="col-sm-3">
-                        <label class="control-label col-sm-5">Pat ids:</label>
-                        <div class="col-sm-7 input-sm">
+                        <label class="control-label col-sm-5" style="width:26%;">Pat ids:</label>
+                        <div class="col-sm-7">
                             <input type="text" class="form-control input-sm" name="pat_ids" id="pat_ids" />
                         </div>
                     </div>
@@ -160,29 +167,33 @@ select {
         <div class="row">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-3" style="width:29%">
                         <label class="control-label col-sm-2">Query:</label>
-                        <div class="col-sm-10 input-sm">
-                            <input type="text" class="form-control" name="query" id="query" value="abstract_html_strip:*" />
+                        <div class="col-sm-10 input-sm" style="width:80%">
+                            <input type="text" class="form-control" name="query" id="query" value="abstract_html_strip:*" style="width:100%"/>
                         </div>
 
                     </div>
-                    <div class="col-sm-4">
-                        <label class="control-label col-sm-2">Snippet:</label>
-                        <div class="col-sm-10 input-sm">
-                            <input type="text" class="form-control" name="snippet" id="snippet" />
+                    <div class="col-sm-3">
+                        <label class="control-label col-sm-1" style="width: 23%">Snippet:</label>
+                        <div class="col-sm-11 input-sm" style="width:70%">
+                            <input type="text" class="form-control" name="snippet" id="snippet"  />
                         </div>
 
                     </div>
                     <div class="col-sm-2">
-                        <label class="control-label col-sm-4">Row:</label>
+                        <label class="control-label col-sm-2" style="width:23%">Row:</label>
                         <div class="col-sm-8 input-sm">
                             <input type="text" class="form-control" name="raw" id="raw" value="100" />
                         </div>
                     </div>
-                    <div class="col-sm-2 input-sm">
+                    <div class="col-sm-1 input-sm">
                         <button type="button" class="btn btn-primary" id="visualize" name="visualize">Visualize</button>
+                        
                     </div>
+                    <div class="col-sm-3 input-sm" style="width:2%">aandkj</div>
+                    
+                        
                 </div>
             </form>
         </div>
@@ -198,7 +209,7 @@ select {
                     <div class="col-sm-3">
                         <label class="control-label col-sm-8" id="l1">MaxWordsPerLabel</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="MaxWordsPerLabel" id="MaxWordsPerLabel" />
+                            <input type="text" class="form-control" name="MaxWordsPerLabel" id="MaxWordsPerLabel" value="3" />
                         </div>
                     </div>
                 </div>
@@ -443,10 +454,10 @@ select {
                         for (var i = 0; i < arrayLength; i++) {
 
 
-                            var expandable = cluster_data[i].docs.length > 10;
+                            var expandable = cluster_data[i].docs.length > 10 ;
                             var sub_group = cluster_data[i].labels[0];
                             result.push({
-                                label: sub_group,
+                                label: sub_group+"("+cluster_data[i].docs.length+")",
                                 docs: cluster_data[i].docs,
                                 expandable: expandable,
                                 weight: (expandable ? arrayLength : 1) * cluster_data[i]
@@ -480,6 +491,7 @@ select {
 
 
         $(document).ready(function () {
+            var label="";
             var slider = document.getElementById("myRange");
             var output = document.getElementById("range_val");
 output.innerHTML = slider.value;
@@ -526,10 +538,10 @@ $(document).ajaxComplete(function(){
                         }
                         // k=uniq(k);
 
-
+                        
 
                         // Set some example content on the tooltip.
-                        tip.content("<b>Patents Count: " + k.length + "</b>");
+                        tip.content("<b>" + currentGroup.tooltip_label + "</b>");
                         tip.position(pageX, pageY);
                         tip.show();
                         lastShownPageX = pageX;
@@ -547,7 +559,7 @@ $(document).ajaxComplete(function(){
                 document.body.addEventListener("mousemove", function (e) {
                     pageX = e.pageX;
                     pageY = e.pageY;
-
+                    
                     // Hide if the mouse pointer gets farther than 10px from the last tooltip location
                     if (shown && Math.sqrt(Math.pow(pageX - lastShownPageX, 2) + Math.pow(pageY -
                             lastShownPageY, 2)) > 10) {
@@ -584,11 +596,13 @@ $(document).ajaxComplete(function(){
                         cluster_data = data.clusters;
                         var arrayLength = cluster_data.length;
                         for (var i = 0; i < arrayLength; i++) {
-                            var expandable = cluster_data[i].docs.length > 15 && cluster_data[i]
-                                .labels != "Other Topics";
+                            var expandable = cluster_data[i].docs.length > 10 && get_sorted_array(all_pat_data,pat_data).length!=cluster_data[i].docs.length;
                             var sub_group = cluster_data[i].labels[0];
+                            var group_label = sub_group+"("+cluster_data[i].docs.length+")";
+                            var tooltip_label = group_label;
                             result.push({
-                                label: sub_group,
+                                label: group_label,
+                                tooltip_label:tooltip_label,
                                 docs: cluster_data[i].docs,
                                 expandable: expandable,
                                 weight: (expandable ? arrayLength : 1) * cluster_data[i]
@@ -703,7 +717,7 @@ $(document).ajaxComplete(function(){
                     }
                 }
             });
-
+            
             // Resize FoamTree on orientation change
             window.addEventListener("orientationchange", foamtree.resize);
 
@@ -734,8 +748,11 @@ var result=[];
                         for (var i = 0; i < arrayLength; i++) {
                             var expandable = cluster_data[i].docs.length > 10;
                             var sub_group = cluster_data[i].labels[0];
+                            var group_label = sub_group+"("+cluster_data[i].docs.length+")";
+                            var tooltip_label = group_label;
                             result.push({
-                                label: sub_group,
+                                label: group_label,
+                                tooltip_label:tooltip_label,
                                 docs: cluster_data[i].docs,
                                 expandable: expandable,
                                 weight: (expandable ? arrayLength : 1) * cluster_data[i]
@@ -762,6 +779,7 @@ var result=[];
                         groups: result
                     }
                 });
+                CreateTableFromJSON(pat_record);
             }});
             });
 
@@ -787,11 +805,13 @@ var result=[];
                         url = get_solr_url();
                         url=url+patents_fq;
                         
-                        debugger
+                        
                         }
 
 
-
+debugger
+                        var tooltip_label=group.tooltip_label;
+                        tooltip_label=tooltip_label;
                         var result2=[];
                         var pat_record2=[];
                                     
@@ -810,10 +830,11 @@ var result=[];
                                 for (var i = 0; i < arrayLength2; i++) {
 
 
-                                    var expandable = cluster_data2[i].docs.length > 10;
+                                    var expandable = cluster_data2[i].docs.length > 10 && get_sorted_array(all_pat_data,group.docs).length!=cluster_data2[i].docs.length;
                                     var sub_group = cluster_data2[i].labels[0];
                                     result2.push({
-                                        label: sub_group,
+                                        label: sub_group+"("+cluster_data2[i].docs.length+")",
+                                        tooltip_label:tooltip_label+"&nbsp;&nbsp;-->&nbsp;&nbsp;"+sub_group+"("+cluster_data2[i].docs.length+")",
                                         docs: cluster_data2[i].docs,
                                         expandable: expandable,
                                         weight: (expandable ? arrayLength2 : 1) * cluster_data2[i].score,
@@ -927,9 +948,10 @@ var result=[];
         }});
         
                 
-
+        
 
 });
+
         
     </script>
 
