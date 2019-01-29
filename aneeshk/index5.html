@@ -18,6 +18,13 @@
 
 
     <style>
+
+
+    
+#visualization{
+    height: 70vh;
+    
+}
         .slidecontainer {
   width: 100%; /* Width of the outside container */
 }
@@ -66,20 +73,51 @@
 .table-cell-edit{
     background-color: lightgoldenrodyellow;
 }
+
+   #loading {
+   width: 50%;
+   height: 35%;
+   top: 25%;
+   left: 0;
+   position: absolute;
+   display:block;
+   opacity: 0.5;
+   z-index: 99;
+   text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+   top: 70%; 
+   height: 30%; 
+   left: 100%;
+  z-index: 100;
+}
+select {
+  font-family: Cursive;
+  font-size: 15px;
+  background-color:white;
+  color:black;
+  
+}
   </style>
 </head>
 
-<body background="bg.jpg">
+<body style="background-image: linear-gradient(rgb(0, 0, 0), rgb(26, 35, 85));">
 
-    <div class="container-fluid">
-        <h1> </h1>
 
-        <div class="row">
+        <div class="img-fluid" id="loading" style="display:absolute">
+                <img id="loading-image" src="loader/loader.gif" alt="Loading..." />
+            </div>
+
+    <div class="container-fluid input-sm" id="main_c" style="width:100%;height:100%">
+        <h4> </h4>
+        <div class="row" style="width:100%;height:5%">
             <form class="form-horizontal">
                 <div class="form-group">
                     <div class="col-sm-2">
-                        <div class="dropdown">
-                            <select name="algorithm" id="algorithm" style="width:30%" oninput="check_algo(this)">
+                        <div class="search_categories">
+                            <select class="select input-sm" name="algorithm" id="algorithm" style="width:50%" oninput="check_algo(this)">
                                 <option value="stc">stc</option>
                                 <option value="lingo">lingo</option>
                                 <option value="kmeans">kmeans</option>
@@ -88,7 +126,7 @@
 
                     </div>
                     <div class="col-sm-4">
-                        <label class="control-label col-sm-4">MaxCluster :</label>
+                        <label class="control-label col-sm-4 input-sm">MaxCluster :</label>
                         <div class="col-sm-7">
                             <div class="slidecontainer">
                                 <input type="range" min="5" max="100" value="50" class="slider" id="myRange" style="width:80%"
@@ -106,14 +144,14 @@
 
                         <label class="control-label col-sm-5">Portfolio ids:</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" name="portfolio_ids" id="portfolio_ids" />
+                            <input type="text" class="form-control input-sm" name="portfolio_ids" id="portfolio_ids" />
                         </div>
 
                     </div>
                     <div class="col-sm-3">
                         <label class="control-label col-sm-5">Pat ids:</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" name="pat_ids" id="pat_ids" />
+                        <div class="col-sm-7 input-sm">
+                            <input type="text" class="form-control input-sm" name="pat_ids" id="pat_ids" />
                         </div>
                     </div>
                 </div>
@@ -124,25 +162,25 @@
                 <div class="form-group">
                     <div class="col-sm-4">
                         <label class="control-label col-sm-2">Query:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-10 input-sm">
                             <input type="text" class="form-control" name="query" id="query" value="abstract_html_strip:*" />
                         </div>
 
                     </div>
                     <div class="col-sm-4">
                         <label class="control-label col-sm-2">Snippet:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-10 input-sm">
                             <input type="text" class="form-control" name="snippet" id="snippet" />
                         </div>
 
                     </div>
                     <div class="col-sm-2">
                         <label class="control-label col-sm-4">Row:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name="raw" id="raw" value="2000" />
+                        <div class="col-sm-8 input-sm">
+                            <input type="text" class="form-control" name="raw" id="raw" value="100" />
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 input-sm">
                         <button type="button" class="btn btn-primary" id="visualize" name="visualize">Visualize</button>
                     </div>
                 </div>
@@ -174,9 +212,9 @@
 
                     <div class="col-sm-12">
 
-                        <div class="col-sm-8">
+                        <div class="col-sm-8" style="height:fit-content">
                             <div id="container">
-                                <div id="visualization" style="position: relative;;height:-webkit-fill-available;width:-webkit-fill-available;"></div>
+                                <div id="visualization"></div>
 
 
                             </div>
@@ -301,23 +339,6 @@
 
 
 
- function get_sorted_array(pat_data,group_ids)
-        {
-            var s_array=[];
-            for(var i=0;i<pat_data.length;i++)
-            {
-                for(var j=0;j<group_ids.length;j++)
-                {
-                    if (group_ids[j]==pat_data[i].id)
-                    {
-                        s_array.push({id:pat_data[i].patnum,title:pat_data[i].title});                    }
-                }
-
-            }
-            debugger
-            return s_array;
-        };
-
 
 
         function CreateTableFromJSON(data) {
@@ -344,13 +365,32 @@
                     {
                         data: "title"
                     }
-                ]
+                ],
+                scrollY:        '50vh'
             });
         };
 
         function uniq(a) {
             return Array.from(new Set(a));
         };
+
+
+        function get_sorted_array(pat_data,group_ids)
+        {
+            var s_array=[];
+            for(var i=0;i<pat_data.length;i++)
+            {
+                for(var j=0;j<group_ids.length;j++)
+                {
+                    if (group_ids[j]==pat_data[i].id)
+                    {
+                        s_array.push({id:pat_data[i].patnum,title:pat_data[i].title});                    }
+                }
+
+            }
+            
+            return s_array;
+        }
 
         var generate = (function () {
             var number = 0;
@@ -403,8 +443,7 @@
                         for (var i = 0; i < arrayLength; i++) {
 
 
-                            var expandable = cluster_data[i].docs.length > 20 && cluster_data[i]
-                                .labels != "Other Topics";
+                            var expandable = cluster_data[i].docs.length > 10;
                             var sub_group = cluster_data[i].labels[0];
                             result.push({
                                 label: sub_group,
@@ -440,26 +479,27 @@
 
 
 
-
         $(document).ready(function () {
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("range_val");
+output.innerHTML = slider.value;
+
+            $(document).ajaxStart(function(){
+                $('.img-fluid').show();
+                $('#main_c').css("opacity",0.4);
+});
+
+$(document).ajaxComplete(function(){
+    $('.img-fluid').hide();
+    $('#main_c').css("opacity",1);
+});
 
 
+         
 
             var url = get_solr_url();
-
-
-            $("button[name = 'visualize']").click(function () {
-                url = get_solr_url();
-                var [clusters_data, patents_data] = generate(1, url, null);
-                //foamtree.reset();
-                foamtree.set({
-                    dataObject: {
-                        groups: clusters_data
-                    }
-                });
-            });
-
-
+            levels=1;
+           
 
             var tooltip = (function () {
                 var tip = new Tooltip("Test", {
@@ -528,14 +568,45 @@
           
 
 
-            debugger
 
-            var [clusters_data, patents_data] = generate(1, url, null);
-            CreateTableFromJSON(patents_data);
+                var result=[];
+                var pat_record=[];
+                
+                $.ajax({
+                    url: url,
+                    async: true,
+                    type: "GET",
+                    dataType: "json",
+
+                    success: function (data) {
+                        pat_data = data.response.docs;
+                        all_pat_data=pat_data;
+                        cluster_data = data.clusters;
+                        var arrayLength = cluster_data.length;
+                        for (var i = 0; i < arrayLength; i++) {
+                            var expandable = cluster_data[i].docs.length > 15 && cluster_data[i]
+                                .labels != "Other Topics";
+                            var sub_group = cluster_data[i].labels[0];
+                            result.push({
+                                label: sub_group,
+                                docs: cluster_data[i].docs,
+                                expandable: expandable,
+                                weight: (expandable ? arrayLength : 1) * cluster_data[i]
+                                    .score,
+                                groups: generate(levels - 1, url, cluster_data[i].docs.toString())
+                            });
+
+                        }
 
 
+                        for (var j = 0; j < pat_data.length; j++) {
 
-
+                            pat_record.push({
+                                id: pat_data[j].patnum,
+                                title: pat_data[j].title
+                            });
+                        }
+            CreateTableFromJSON(pat_record);
             var foamtree = new CarrotSearchFoamTree({
                 // Identifier of the HTML element defined above
                 id: "visualization",
@@ -562,7 +633,7 @@
 
                 // Generate some initial data
                 dataObject: {
-                    groups: clusters_data
+                    groups: result
                 },
 
                 // Use a simple fading animation
@@ -601,7 +672,10 @@
                     var group = e.secondary ? e.bottommostOpenGroup : e.topmostClosedGroup;
                     var toZoom;
                     if (group) {
-                        CreateTableFromJSON(generate(1, url, group.docs.toString())[1]);
+                        
+                        //CreateTableFromJSON(generate(1, url, group.docs.toString())[1]);
+
+                        CreateTableFromJSON(get_sorted_array(all_pat_data,group.docs));
                         // Open on left-click, close on right-click
                         if (!e.secondary && group.expandable && !e.group.groups) {
                             loader.load(group);
@@ -611,6 +685,7 @@
                                 open: !e.secondary
                             });
                         }
+                        
                         toZoom = e.secondary ? group.parent : group;
                     } else {
                         toZoom = this.get("dataObject");
@@ -640,35 +715,142 @@
                     timeout = window.setTimeout(foamtree.resize, 300);
                 }
             })());
+        
+            $("button[name = 'visualize']").click(function () {
+                url = get_solr_url();
+var pat_record=[];
+var result=[];
+                  $.ajax({
+                    url: url,
+                    async: true,
+                    type: "GET",
+                    dataType: "json",
+
+                    success: function (data) {
+                        pat_data = data.response.docs;
+                        all_pat_data=pat_data;
+                        cluster_data = data.clusters;
+                        var arrayLength = cluster_data.length;
+                        for (var i = 0; i < arrayLength; i++) {
+                            var expandable = cluster_data[i].docs.length > 10;
+                            var sub_group = cluster_data[i].labels[0];
+                            result.push({
+                                label: sub_group,
+                                docs: cluster_data[i].docs,
+                                expandable: expandable,
+                                weight: (expandable ? arrayLength : 1) * cluster_data[i]
+                                    .score,
+                                groups: generate(levels - 1, url, cluster_data[i].docs.toString())
+                            });
+
+                        }
+
+
+                        for (var j = 0; j < pat_data.length; j++) {
+
+                            pat_record.push({
+                                id: pat_data[j].patnum,
+                                title: pat_data[j].title
+                            });
+                        }
+
+
+                //var [clusters_data, patents_data] = generate(1, url, null);
+                //foamtree.reset();
+                foamtree.set({
+                    dataObject: {
+                        groups: result
+                    }
+                });
+            }});
+            });
+
+
 
             //
             // A simple utility for simulating the Ajax loading of data
             // and updating FoamTree with the newly loaded data.
             //
             var loader = (function (foamtree) {
-                return {
-                    load: function (group) {
-                        if (!group.groups && !group.loading) {
-                            spinner.start(group);
+                        return {
+                            load: function (group) {
+                                if (!group.groups && !group.loading) {
+                                    spinner.start(group);
 
-                            // Simulate loading from the server by a timeout
-                            window.setTimeout(function () {
-                                [group.groups, pat_record] = generate(1, url, group.docs.toString());
-                                CreateTableFromJSON(pat_record);
+                                    // Simulate loading from the server by a timeout
+                                    window.setTimeout(function () {
+                        if (group.docs.toString() !== null) {
 
-
-                                // We need to open the group for FoamTree to update its model
-                                foamtree.open({
-                                    groups: group,
-                                    open: true
-                                }).then(function () {
-                                    spinner.stop(group);
-                                });
-                            }, 500 + 1500 * Math.random());
+                        var pats_list = '\"' + group.docs.toString().split(',').join('\" OR \"') + '\"';
+                        var patents_fq = '&fq=id:(' + pats_list + ')';
+                        //console.log(patents_fq)
+                        url = get_solr_url();
+                        url=url+patents_fq;
+                        
+                        debugger
                         }
-                    }
-                };
-            })(foamtree);
+
+
+
+                        var result2=[];
+                        var pat_record2=[];
+                                    
+                            $.ajax({
+                            url: url,
+                            async: true,
+                            type: "GET",
+                            dataType: "json",
+
+                            success: function (data) {
+                                
+                                pat_data2 = data.response.docs;
+                                cluster_data2 = data.clusters;
+                                
+                                var arrayLength2 = cluster_data2.length;
+                                for (var i = 0; i < arrayLength2; i++) {
+
+
+                                    var expandable = cluster_data2[i].docs.length > 10;
+                                    var sub_group = cluster_data2[i].labels[0];
+                                    result2.push({
+                                        label: sub_group,
+                                        docs: cluster_data2[i].docs,
+                                        expandable: expandable,
+                                        weight: (expandable ? arrayLength2 : 1) * cluster_data2[i].score,
+                                        groups: generate(levels - 1, url, cluster_data2[i].docs.toString())
+                                    });
+
+                                }
+
+
+                                for (var j = 0; j < pat_data2.length; j++) {
+
+                                    pat_record2.push({
+                                        id: pat_data2[j].patnum,
+                                        title: pat_data2[j].title
+                                    });
+                                }
+
+
+                        group.groups=result2;      
+                        //foamtree.redraw(true, group.groups);   
+                        
+                        CreateTableFromJSON(pat_record2);
+
+
+
+                                        // We need to open the group for FoamTree to update its model
+                                        foamtree.open({
+                                            groups: group,
+                                            open: true
+                                        }).then(function () {
+                                            spinner.stop(group);
+                                        });
+        }}); }, 500 + 1500 * Math.random());
+                                }
+                            }
+                        };
+                    })(foamtree);
 
             //
             // A simple utility for starting and stopping spinner animations
@@ -741,11 +923,14 @@
                 };
             })(foamtree);
 
-            var [clusters_data, patents_data] = generate(1, url, null);
-            CreateTableFromJSON(patents_data);
-            debugger
 
-        });
+        }});
+        
+                
+
+
+});
+        
     </script>
 
 </body>
