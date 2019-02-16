@@ -821,26 +821,40 @@ select {
                                                 pats_list + ')';
                                             //console.log(patents_fq)
                                             url = get_solr_url();
-                                            url = url + patents_fq;
+                                       //     url = url + patents_fq;
 
 
                                         }
 
 
-                                        debugger
+                                        
                                         var tooltip_label = group.tooltip_label;
                                         tooltip_label = tooltip_label;
                                         var result2 = [];
                                         var pat_record2 = [];
 
+
+
+                                        
+ post_data= {
+     params: {
+        
+    fq: 'id:(' +pats_list + ')',
+    rows: 1,
+    wt:"json"
+  }
+};
+
+
                                         $.ajax({
                                             url: url,
                                             async: true,
-                                            type: "GET",
+                                            type: "POST",
                                             dataType: "json",
+                                            data:post_data,
 
-                                            success: function (data) {
-
+                                            success: function (resultData) {
+debugger
                                                 pat_data2 = data.response
                                                     .docs;
                                                 cluster_data2 =
