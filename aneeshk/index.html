@@ -32,13 +32,16 @@
         <div class="row" id="div_378b_0">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-sm-1" id="div_378b_1">
-                        <div class="search_categories">
+                    <div class="col-sm-2" id="div_378b_1">
+                        <div class="control-label col-sm-7" data-toggle="tooltip" title="Choose the any of the three clustering algorithm from the dropdown menu"><b>Alogorithm :</b></div>
+                        <div class="col-sm-3">
+                        <div class="search_categories" data-toggle="tooltip" title="Choose the any of the three clustering algorithm from the dropdown menu">
                             <select class="select input-sm" name="algorithm" id="algorithm"  oninput="check_algo(this)">
                                 <option value="stc">stc</option>
                                 <option value="lingo">lingo</option>
                                 <option value="kmeans">kmeans</option>
                             </select>
+                        </div>
                         </div>
 
                     </div>
@@ -46,7 +49,7 @@
                         <label class="control-label col-sm-4 input-sm" data-toggle="tooltip" title="Maximum Number of cluster to be displayed! (Note in STC case The number of clusters created by the algorithm will be proportional to this input)" id="label_378b_0">MaxCluster :</label>
                         
                         <div class="col-sm-6">
-                            <div class="slidecontainer">
+                            <div class="slidecontainer" data-toggle="tooltip" title="Maximum Number of cluster to be displayed! (Note in STC case The number of clusters created by the algorithm will be proportional to this input)" id="label_378b_0">
                                 <input type="range" min="5" max="100" value="50" class="slider" id="myRange" 
                                     step="5" oninput="get_range_val()">
 
@@ -60,26 +63,20 @@
                     </div>
                     <div class="col-sm-3" id="div_378b_2">
 
-                        <label class="control-label col-sm-4" id="label_378b_1">Portfolio ids:</label>
+                        <label class="control-label col-sm-4" id="label_378b_1" data-toggle="tooltip" title="Enter comma seperated portfolio ids" data-toggle="tooltip" title="Enter comma seperated portfolio ids">Portfolio ids:</label>
                         <div class="col-sm-6" id="div_378b_3">
                             <input type="text" class="form-control input-sm" name="portfolio_ids" id="portfolio_ids"
-                                value="501584" style="width:150%;"/>
+                                value="501584" style="width:150%;" data-toggle="tooltip" title="Enter comma seperated portfolio ids"/>
                         </div>
 
                     </div>
                     <div class="col-sm-3">
-                        <label class="control-label col-sm-3" id="label_378b_2">Pat ids:</label>
+                        <label class="control-label col-sm-3" id="label_378b_2" data-toggle="tooltip" title="Enter comma seperated patent ids">Pat ids:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control input-sm" name="pat_ids" id="pat_ids" />
+                            <input type="text" class="form-control input-sm" name="pat_ids" id="pat_ids" data-toggle="tooltip" title="Enter comma seperated patent ids"/>
                         </div>
                     </div>
-                    <div class="col-sm-2" id="div_378b_4">
-                        <div class="checkbox">
-                            <label><input type="checkbox" name="include_abstract" id="include_abstract" value="1" data-toggle="tooltip" title="Allow algorithm to use patent abstract text also for forming the clusters"><b>Include
-                                    Abstract</b></label>
-                        </div>
-
-                    </div>
+                   
                 </div>
 
             </form>
@@ -87,21 +84,27 @@
         <div class="row">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-sm-3" id="div_378b_5">
-                        <label class="control-label col-sm-2">Query:</label>
-                        <div class="col-sm-10" id="div_378b_6">
-                            <input type="text" class="form-control input-sm" name="query" id="query" value="abstract_html_strip:*"
-                                 />
+                    <div class="col-sm-4" id="div_378b_5">
+                        <label class="control-label col-sm-3" data-toggle="tooltip" title="You can filter patents by title or abstract_html_strip field (Eg:title:Apple)">&nbsp;Query: </label>
+                        <div class="col-sm-8" id="div_378b_6">
+                            <input type="text" class="form-control input-sm" name="query" id="query" value="abstract_html_strip:*" data-toggle="tooltip" title="You can filter patents by title or abstract_html_strip field (Eg:title:Apple)"/>
                         </div>
 
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2" id="div_378b_4">
+                            <div class="checkbox">
+                                <label data-toggle="tooltip" title="Abstract as well in addition to patent title will be used for clustering"><input type="checkbox" name="include_abstract" id="include_abstract" value="1" data-toggle="tooltip" title="Abstract as well in addition to patent title will be used for clustering"><b>Include
+                                        Abstract</b></label>
+                            </div>
+    
+                        </div>
+                  <!--  <div class="col-sm-3">
                         <label class="control-label col-sm-4" id="label_378b_3">Snippet:</label>
                         <div class="col-sm-8" id="div_378b_7">
                             <input type="text" class="form-control input-sm" name="snippet" id="snippet" />
                         </div>
 
-                    </div>
+                    </div>-->
                     <div class="col-sm-2">
                         <label class="control-label col-sm-6" id="label_378b_4">Row:</label>
                         <div class="col-sm-6">
@@ -110,12 +113,12 @@
                     </div>
 
 
-                    <div class="col-sm-2 input-sm" id="div_378b_8">
+                    <div class="col-sm-2 input-sm" id="div_378b_8" style="width:16%">
 
                         <label class="control-label col-sm-6" id="l1"  data-toggle="tooltip" title="Maximum Words Per Label(STC)">M.W.Label :</label>
                         <div class="col-sm-5" id="div_378b_9">
                             <input type="text" class="form-control input-sm" name="MaxWordsPerLabel" id="MaxWordsPerLabel"
-                                value="3"  />
+                                value="3" data-toggle="tooltip" title="Maximum Words Per Label(STC)" />
                         </div>
                     </div>
 
@@ -158,7 +161,7 @@
     </div>
 
     <script src="assets/js/tooltip.min.js"></script>
-    <script src="js/load_foam_tree.js"></script>
+    <script src="js/load_foam_tree2.js"></script>
 </body>
 
 </html>
