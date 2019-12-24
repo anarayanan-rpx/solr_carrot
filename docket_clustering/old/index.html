@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>FoamTree Quick Start</title>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <div id="visualization" style="width: 800px; height: 600px"></div>
+
+  <script src="js/carrotsearch.foamtree.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    window.addEventListener("load", function () {
+      var foamtree = new CarrotSearchFoamTree({
+        id: "visualization",
+        dataObject: {
+          groups: [{
+              label: "Yours",
+              weight: 1.0
+            },
+            {
+              label: "First",
+              weight: 3.0
+            },
+            {
+              label: "FoamTree",
+              weight: 2.0
+            },
+            {
+              label: "Visualization",
+              weight: 4.0
+            }
+          ]
+        }
+      });
+      foamtree.set({
+        dataObject: {
+          groups: [{
+            label: "loading..."
+          }, {
+            label: "Please wait"
+          }]
+        },
+        fadeDuration: 5
+      });
+
+      $.ajax({
+        //url: "census.json",
+        url: "test.json",
+      //  url: "touch2.json",
+
+        dataType: "json",
+        success: function (data) {
+          var pat_data = data.response.docs;
+          var cluster_data = data.clusters;
+         
+          
+          var p=pat_data[0].pat_id;
+          var a=cluster_data[0].labels;
+          var races = [];     
+
+          for (i=0;i<cluster_data.docs.length;i++)
+          {
+            races.push({
+              'label':cluster_data[i].labels,
+              'prop':cluster_data[i].score,
+              'groups':[{
+                'label':i,
+                'props':cluster_data[i].docs
+              }]
+              
+            });
+          }
+          debugger
+          
+         /* var races = [{
+              label: "aneesh",
+              prop: "patnum"
+            },
+            {
+              label: "vinu",
+              prop: "patnum"
+            }
+          ];*/
+
+          var popByRace = cluster_data.reduce(function (index, state) {
+            races.forEach(function (spec) {
+              var pop = state[spec.prop] * state.Pop;
+              index[spec.prop].total += pop;
+              index[spec.prop].min = Math.min(index[spec.prop].min, state[spec.prop]);
+              index[spec.prop].max = Math.max(index[spec.prop].max, state[spec.prop]);
+            });
+            return index;
+          }, races.reduce(function (index, spec) {
+            index[spec.prop] = {
+              total: 0,
+              min: Number.MAX_VALUE,
+              max: 0
+            };
+            return index;
+          }, {}));
+
+          var groups = races.map(function (spec) {
+            return {
+              label: spec.label,
+              weight: popByRace[spec.prop].total/*,
+              groups: cluster_data.map(function (state) {
+                return {
+                  label: state.docs,
+                  weight: (state[spec.prop] - popByRace[spec.prop].min) /
+                    popByRace[spec.prop].max
+                };
+              })*/
+            };
+          });
+
+          foamtree.set({
+            dataObject: {
+              groups: groups
+            },
+            rolloutDuration: 3000
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

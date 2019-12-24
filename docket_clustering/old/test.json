@@ -1,0 +1,1515 @@
+{
+    "response": {
+        "numFound": 99,
+        "start": 0,
+        "maxScore": 1,
+        "docs": [{
+                "id": "AnalystPat 1:685594",
+                "pat_id": 685594,
+                "account_id": 1,
+                "patnum": "US7966284B2",
+                "title": "Preference setting in a computer system",
+                "abstract_html_strip": "A profile of likelihoods of actions that will occur on a computer is stored. The computer may be likely to be off between time periods, e.g., between midnight and 7 am. Some action is taken relative to the actions that are likely to occur, before those actions actually happen.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622204907202281500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:576823",
+                "pat_id": 576823,
+                "account_id": 1,
+                "patnum": "US7870388B2",
+                "title": "Page encryption system",
+                "abstract_html_strip": "Text containing files are encrypted by first formatting the files for display. The display-formatted files are then run length coded to form files indicating the information. The files are encrypted.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622204814320468000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3119483",
+                "pat_id": 3119483,
+                "account_id": 1,
+                "patnum": "US6580372B1",
+                "title": "Automatic electronic device detection",
+                "abstract_html_strip": "A system that detects cellular telephone and other electronic use within an unauthorized locations. The location can be detected by GPS or triangulation, and once detected can automatically produce certain operations.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622206355835191300,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3144072",
+                "pat_id": 3144072,
+                "account_id": 1,
+                "patnum": "US6222458B1",
+                "title": "Automatic cell phone detection at a combustible delivery station",
+                "abstract_html_strip": "Protection against use of a two way radio, e.g. a cellular phone, at a combustible delivery station. One mode is active, and detects operating cell phones at the gas station. The phones can be detected using Bluetooth. The pump can be turned off when the alarm is detected. Another mode is passive. This mode can be via shielding, alone or with RF jamming.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622206378799005700,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3202956",
+                "pat_id": 3202956,
+                "account_id": 1,
+                "patnum": "US6952719B1",
+                "title": "Spam detector defeating system",
+                "abstract_html_strip": "A system for detecting random information in an electronic communication, and recognizing the electronic information as being undesired information, e.g. Spam, when such random information is detected. The random information can be random characters, random words, or the like. The random words can be detected by comparing the words with a dictionary, and selecting words as being random when they do not match the dictionary. A matching criteria less than 100% may be established to accommodate words which are not in the dictionary and typographical errors.",
+                "portfolio_ids": [
+                    20440,
+                    10123,
+                    500786
+                ],
+                "_version_": 1622206430267310000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2840723",
+                "pat_id": 2840723,
+                "account_id": 1,
+                "patnum": "US7231050B1",
+                "title": "Protection against unintentional file changing",
+                "abstract_html_strip": "An encrypted file system that uses the encryption of files in a computer to restrict access to the files. Encrypted files are associated with a user. A decryption key is required in order to allow changes to be made to any of those files. Other files, such as those files which are less sensitive, may be unencrypted, and may be accessed even when the user is unavailable. These files may be read only files. A duplicate decryption technique may be allowed to allow access to the files, if the decryption key becomes unavailable. Certificates can verify access to the different files.",
+                "portfolio_ids": [
+                    20440,
+                    8582
+                ],
+                "_version_": 1622206191353462800,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3433171",
+                "pat_id": 3433171,
+                "account_id": 1,
+                "patnum": "US7069315B1",
+                "title": "Off-line web surfing via an automatically created super preference file",
+                "abstract_html_strip": "A special preferences file, called herein a “super preferences file” is formed by automatically monitoring the user's actions when that user is connected to the Internet. That super preferences file can indicate information about the users actions when connected to the Internet, including the amount of time that the user has spent on said specified Internet sites. The super preferences file is then usable to obtain off-line content when the user is not connected to the Internet. In different aspects, this can be done while the user is on multiple different computers. Another aspect monitors dick stream. The super preferences file can be protected by encrypting. According to another aspect, the indication of time, in received off-line content, can be changed.",
+                "portfolio_ids": [
+                    20440,
+                    8582
+                ],
+                "_version_": 1622206568214823000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3647834",
+                "pat_id": 3647834,
+                "account_id": 1,
+                "patnum": "US7134016B1",
+                "title": "Software system with a biometric dongle function",
+                "abstract_html_strip": "A program is installed by associating the program with an encrypted item of biometric information. The biometric information is encrypted using a private key on the server and associated with the program's execution file on the client. When the program is to be run, the encrypted biometric information is decrypted to obtain reference biometric information. That reference biometric information is compared with currently-obtained biometric information to detect a match. The program is allowed to run into specified and normal way only when the two indicia match. A limited to run may be allowed when the biometrics do not match.",
+                "portfolio_ids": [
+                    6205,
+                    20440
+                ],
+                "_version_": 1622206671870754800,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:4694725",
+                "pat_id": 4694725,
+                "account_id": 1,
+                "patnum": "US6552512B1",
+                "title": "Portable device charger based on audio energy power",
+                "abstract_html_strip": "A device for receiving audio signal from an audio source, and converting said audio signal into DC power to be used to recharge a portable device. The portable device may be for example a PDA, or laptop or cellular phone. The power from the audio signal is rectified, and may be DC to DC converted in order to produce a specified DC level. That value is then used to charge the portable device.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622207279185002500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:4986451",
+                "pat_id": 4986451,
+                "account_id": 1,
+                "patnum": "US6336136B1",
+                "title": "Internet weight reduction system",
+                "abstract_html_strip": "Methods and apparatus are provided for a diet system which is carried out over the Internet. A server, over a network, stores at least one weight reduction program, including information from which a specific weight reduction plan can be selected. The server receives user information, from a client, that includes a current image of the user. The server compares the current image to a previous image of the user to verify at least part of the information from the user. The server determines a weight reduction program based on the information by the user and the image comparison.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622207446132981800,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3180779",
+                "pat_id": 3180779,
+                "account_id": 1,
+                "patnum": "US7111252B1",
+                "title": "Enhancing touch and feel on the internet",
+                "abstract_html_strip": "A system for enabling touch and feel over the internet provides a three-dimensional representation of a good being sold, that three-dimensional representation being viewable from a number of different directions. The good being sold is in a package and the package is displayed from the number of different directions. The present invention has the good being a book, and the inside and outside covers of the book are displayed and specified pages of the book can be displayed. The user can read from either the label or the covers just like as if the were actually handling the good.",
+                "portfolio_ids": [
+                    20440,
+                    5849
+                ],
+                "_version_": 1622206419173376000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3184026",
+                "pat_id": 3184026,
+                "account_id": 1,
+                "patnum": "US6765492B2",
+                "title": "Automatic electronic device detection",
+                "abstract_html_strip": "A system that detects cellular telephone and other electronic use within an unauthorized locations. The location can be detected by GPS or triangulation, and once detected can automatically produce certain operations.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622206419416645600,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3504244",
+                "pat_id": 3504244,
+                "account_id": 1,
+                "patnum": "US7096187B1",
+                "title": "Compressed audio information",
+                "abstract_html_strip": "Compressed entertainment content such as audio or video or both includes additional aspects and operations associated their way. The compressed audio may be used to signal computers such as a telephone or reminder for an appointment. A melody line may be extracted from the audio, or the audio may be used exactly as it is. Another aspect stores traders within the entertainment content such as in MP3. Those traders are used to trigger the system to retrieve other parts of the content to be displayed at the same time that that particular part of the MP3 is being play. The content may include video or text, or maybe links to other content such as broadband content four times sensitive content. Another aspect describes encryption which is keyed to the disk ID to prevent playing oven illegally copied disk. Another aspect reads a specified amount of information then spins down the disk to conserve battery power.",
+                "portfolio_ids": [
+                    20440,
+                    6999
+                ],
+                "_version_": 1622206596831510500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:840913",
+                "pat_id": 840913,
+                "account_id": 1,
+                "patnum": "US7974080B2",
+                "title": "Round housings for virtual computing systems with stylesheets",
+                "abstract_html_strip": "A computer system that has an outer shape that is round in outer cross-section. The computer housing can be formed of first and second housing parts that are each round in outer cross-section where one unscrews relative to another like taking the lid off a jar. The inside of the housing can store various kinds of nonvolatile memory and a processor. The user's entire processing environment may be stored within the memory and processor, and part of that environment may include stylesheet that represents specific styles of the user.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205043565396000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:861636",
+                "pat_id": 861636,
+                "account_id": 1,
+                "patnum": "US8018398B1",
+                "title": "Automatic configuration of multiple monitor systems",
+                "abstract_html_strip": "Control of multiple display screens associated with a computer, wherein the auxiliary screen display content that depends on conditions of the computer. During some times the auxiliary screen displays content associated with the presently executing program, and during other times the auxiliary screen displays history information. The rules can be automatically changed or manually changed.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205049934446600,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1502752",
+                "pat_id": 1502752,
+                "account_id": 1,
+                "patnum": "US7753266B2",
+                "title": "Intelligent credit card system",
+                "abstract_html_strip": "A new credit card system which enables improved reading and other operations. Reading can be done in the short edge of the credit card thereby shortening the aspect ratio and size of the card reader. The reader can be electrical, reading information via contacts, or can be optical readers.",
+                "portfolio_ids": [
+                    503414,
+                    20440
+                ],
+                "_version_": 1622205430030663700,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1865158",
+                "pat_id": 1865158,
+                "account_id": 1,
+                "patnum": "US7561697B2",
+                "title": "Adaptive high fidelity reproduction system",
+                "abstract_html_strip": "Audio is adaptively associated with speakers, depending on the speaker configuration that is present. Each speaker it receives an audio assignment based on its individual spectral characteristics. As more speakers are added, content is adaptively associated with that you speaker, and taken away from the previous.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205638016761900,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2261574",
+                "pat_id": 2261574,
+                "account_id": 1,
+                "patnum": "US7360688B1",
+                "title": "Intelligent credit card system",
+                "abstract_html_strip": "A new credit card system which enables improved reading and other operations. Reading can be done in the short edge of the credit card thereby shortening the aspect ratio and size of the card reader. The reader can be electrical, reading information via contacts, or can be optical readers.",
+                "portfolio_ids": [
+                    503414,
+                    20440
+                ],
+                "_version_": 1622205861384421400,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2915411",
+                "pat_id": 2915411,
+                "account_id": 1,
+                "patnum": "US7260421B2",
+                "title": "Communication device that communicates events using compressed audio information",
+                "abstract_html_strip": "Compressed entertainment content such as audio or video or both includes additional aspects and operations associated their way. The compressed audio may be used to signal computers such as a telephone or reminder for an appointment. A melody line may be extracted from the audio, or the audio may be used exactly as it is. Another aspect stores traders within the entertainment content such as in MP3. Those traders are used to trigger the system to retrieve other parts of the content to be displayed at the same time that that particular part of the MP3 is being play. The content may include video or text, or maybe links to other content such as broadband content four times sensitive content. Another aspect describes encryption which is keyed to the disk ID to prevent playing oven illegally copied disk. Another aspect reads a specified amount of information then spins down the disk to conserve battery power.",
+                "portfolio_ids": [
+                    20440,
+                    6999
+                ],
+                "_version_": 1622206233321668600,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2751696",
+                "pat_id": 2751696,
+                "account_id": 1,
+                "patnum": "US7202798B2",
+                "title": "Automatic electronic device detection",
+                "abstract_html_strip": "A system that detects cellular telephone and other electronic use within an unauthorized locations. The location can be detected by GPS or triangulation, and once detected can automatically produce certain operations.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622206143091703800,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2743491",
+                "pat_id": 2743491,
+                "account_id": 1,
+                "patnum": "US7194624B1",
+                "title": "Page encryption system",
+                "abstract_html_strip": "Text containing files are encrypted by first formatting the files for display. The display-formatted files are then run length coded to form files indicating the information. The files are encrypted.",
+                "portfolio_ids": [
+                    8582,
+                    20440
+                ],
+                "_version_": 1622206135171809300,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3093398",
+                "pat_id": 3093398,
+                "account_id": 1,
+                "patnum": "US6738643B1",
+                "title": "Phone sync",
+                "abstract_html_strip": "A PDA and telephone are associated so that the PDA can automatically dial the telephone. Another aspect enables acquiring a digital photo, and associating that with contact information on the PDA.",
+                "portfolio_ids": [
+                    6999,
+                    20440
+                ],
+                "_version_": 1622206347514740700,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3850201",
+                "pat_id": 3850201,
+                "account_id": 1,
+                "patnum": "US6892136B1",
+                "title": "Non real time traffic system for a navigator",
+                "abstract_html_strip": "A system for improving the operation of a GPS based navigator. Statistical and/or time of day information is used to select the best route between a current location and a desired location. The statistical information may take into account anomalies, and a user can select the amount of risk they which take. The system can be updated with more updated information. In addition, the selection of the desired location can be carried out by downloading information from a PDA.",
+                "portfolio_ids": [
+                    20440,
+                    8057
+                ],
+                "_version_": 1622206789562925000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:4833817",
+                "pat_id": 4833817,
+                "account_id": 1,
+                "patnum": "US6604047B1",
+                "title": "Non real time traffic system for a navigator",
+                "abstract_html_strip": "A system for improving the operation of a GPS based navigator. Statistical and/or time of day information is used to select the best route between a current location and a desired location. The statistical information may take into account anomalies, and a user can select the amount of risk they which take. The system can be updated with more updated information. In addition, the selection of the desired location can be carried out by downloading information from a PDA.",
+                "portfolio_ids": [
+                    8057,
+                    20440
+                ],
+                "_version_": 1622207356713566200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3664178",
+                "pat_id": 3664178,
+                "account_id": 1,
+                "patnum": "US7154819B2",
+                "title": "Adaptive high fidelity reproduction system",
+                "abstract_html_strip": "Audio is adaptively associated with speakers, depending on the speaker configuration that is present. Each speaker it receives an audio assignment based on its individual spectral characteristics. As more speakers are added, content is adaptively associated with that you speaker, and taken away from the previous.",
+                "portfolio_ids": [
+                    7757,
+                    20440
+                ],
+                "_version_": 1622206682241171500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2926650",
+                "pat_id": 2926650,
+                "account_id": 1,
+                "patnum": "US7263494B1",
+                "title": "Graphical travel system for the internet",
+                "abstract_html_strip": "A graphical user interface for a travel system allows the beginning and end points to be selected, and then displays a line indicating the travel, and calculates fares.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622206235327594500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2594281",
+                "pat_id": 2594281,
+                "account_id": 1,
+                "patnum": "US7460023B1",
+                "title": "Automatic electronic device detection",
+                "abstract_html_strip": "A system that detects cellular telephone and other electronic use within an unauthorized locations. The location can be detected by GPS or triangulation, and once detected can automatically produce certain operations.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622206044610494500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2626276",
+                "pat_id": 2626276,
+                "account_id": 1,
+                "patnum": "US7467403B2",
+                "title": "Techniques for entry of less-than-perfect-passwords",
+                "abstract_html_strip": "A technique of allowing entry of the password which is not 100% correct. This password would be used to verify identity and/or login information in low security techniques. The password is scored relative to the correct password. The scoring can take into effect least mean squares differences, and other information such as letter groups, thereby detecting missed characters or extra characters, as well as shift on the keyboard.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622206061705429000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:4272122",
+                "pat_id": 4272122,
+                "account_id": 1,
+                "patnum": "US6738318B1",
+                "title": "Audio reproduction system which adaptively assigns different sound parts to different reproduction parts",
+                "abstract_html_strip": "Audio is adaptively associated with speakers, depending on the speaker configuration that is present. Each speaker it receives an audio assignment based on its individual spectral characteristics. As more speakers are added, content is adaptively associated with that you speaker, and taken away from the previous.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622207033231016000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:3190867",
+                "pat_id": 3190867,
+                "account_id": 1,
+                "patnum": "US7079652B1",
+                "title": "Login renewal based on device surroundings",
+                "abstract_html_strip": "A system of allowing user login to a computer. The user is allowed to login by entering some kind of personal identification information e.g. biometric, password or hand. Once login, the computer detects its surroundings. The surrounding detecting can be by GPS, e.g. to detect location, or can use a camera to detect of view of a user. When the user does not properly login, account of the incorrect login is maintained. Each increment of the incorrect login's causes the security to increase.",
+                "portfolio_ids": [
+                    6999,
+                    20440
+                ],
+                "_version_": 1622206421900722200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:887670",
+                "pat_id": 887670,
+                "account_id": 1,
+                "patnum": "US8005501B1",
+                "title": "Determination of data authorization on a data media",
+                "abstract_html_strip": "Entertainment content is stored in a memory. The content can be audio or video or both. According to an aspect, encryption is keyed to the disc contents to produce a cryptographically created value. That cryptographically created value is based on the content on the memory along with the cryptographic operation. The cryptographic value can be used to determine if data on the memory is valid. One aspect of the memory can be an optical disc. Another aspect carries this out only for recorded discs and does not do this for prerecorded discs.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205065594929200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1202585",
+                "pat_id": 1202585,
+                "account_id": 1,
+                "patnum": "US7692404B2",
+                "title": "Charging control in an electric vehicle",
+                "abstract_html_strip": "A charging system for a vehicle rearranges the bank of battery cells between a series connection for delivering voltage to a load, e.g. a motor; and a parallel connection for being charged. The battery bank can thus be charged by a 12 volt battery charger. The charger can be a plug in charger, or can be a solar cell. For example, the solar cell can be moved to cover a windshield or other surface of the vehicle whenever the vehicle is shut down.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205260194906000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1210115",
+                "pat_id": 1210115,
+                "account_id": 1,
+                "patnum": "US7751183B2",
+                "title": "USB stacking devices and applications",
+                "abstract_html_strip": "A modular device formed with USB connectors. The USB can be used for connecting different kinds of devices, for example memories, user interfaces and the like. The USB devices can be piggybacked. In an embodiment, the USB devices can be located in a cavity formed inside the computer. Another embodiment forms a modular cellular telephone.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205261135478800,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:991859",
+                "pat_id": 991859,
+                "account_id": 1,
+                "patnum": "US8064322B2",
+                "title": "Adaptive high fidelity reproduction system",
+                "abstract_html_strip": "Audio is adaptively associated with speakers, depending on the speaker configuration that is present. Each speaker it receives an audio assignment based on its individual spectral characteristics. As more speakers are added, content is adaptively associated with that you speaker, and taken away from the previous.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205139260539000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1084342",
+                "pat_id": 1084342,
+                "account_id": 1,
+                "patnum": "US7788702B1",
+                "title": "Protection against unintentional file changing",
+                "abstract_html_strip": "Files are protected against intrusion. A first embodiment protects certain files against changes. A second embodiment encrypts the files that are stored using user's personal information.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205189504106500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1024570",
+                "pat_id": 1024570,
+                "account_id": 1,
+                "patnum": "US7782613B2",
+                "title": "Cooling system for a portable device",
+                "abstract_html_strip": "A cellular cooling part includes a number at least one movable part, that can be the removable flap or movable cover for a fan. The fan, for example, can be moved or opened to expose it. A flap can also be opened. In addition, different covering structures can be used.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205155447406600,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:975039",
+                "pat_id": 975039,
+                "account_id": 1,
+                "patnum": "US8066182B2",
+                "title": "Intelligent credit card system",
+                "abstract_html_strip": "A new credit card system which enables improved reading and other operations. Reading can be done in the short edge of the credit card thereby shortening the aspect ratio and size of the card reader. The reader can be electrical, reading information via contacts, or can be optical readers.",
+                "portfolio_ids": [
+                    503414,
+                    20440
+                ],
+                "_version_": 1622205118764023800,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:575942",
+                "pat_id": 575942,
+                "account_id": 1,
+                "patnum": "US7882551B2",
+                "title": "Techniques for entry of less than perfect passwords",
+                "abstract_html_strip": "A technique of allowing entry of the password which is not 100% correct. This password would be used to verify identity and/or login information in low security techniques. The password is scored relative to the correct password. The scoring can take into effect least mean squares differences, and other information such as letter groups, thereby detecting missed characters or extra characters, as well as shift on the keyboard.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622204814216659000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:656897",
+                "pat_id": 656897,
+                "account_id": 1,
+                "patnum": "US7969509B2",
+                "title": "Aspect ratio enhancement",
+                "abstract_html_strip": "An adaptive compensation system for aspect ratio conversion. Video information, intended for her first aspect ratio display, e.g. the standard NTSC aspect ratio, is processed to determine additional information that can enable that video to be displayed and fill a wider aspect ratio screen. The processing can be a calculation which calculates, for example, texture, color and/or brightness of the edge portions, and automatically calculates video information to match the texture, brightness or color. The processing can be a database lookup, which automatically looks up likely portions from a database. The processing can also be an adaptive determination of what vertical portions of the image can be stretched without affecting the viewability, and then an adaptive stretching of different portions by different amounts.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622204883991003100,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1275856",
+                "pat_id": 1275856,
+                "account_id": 1,
+                "patnum": "US7788219B2",
+                "title": "Preference setting in a computer system",
+                "abstract_html_strip": "A profile of likelihoods of actions that will occur on a computer is stored. The computer may be likely to be off between time periods, e.g., between midnight and 7 am. Some action is taken relative to the actions that are likely to occur, before those actions actually happen.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205293200932900,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1464613",
+                "pat_id": 1464613,
+                "account_id": 1,
+                "patnum": "US7707252B1",
+                "title": "Automatic mail rejection feature",
+                "abstract_html_strip": "A spam defining system defines rules about emails depending on user's reactions to emails. A user can delete an email as spam, or not spam, or without committing to whether the email is spam or not. If the user indicates whether the email is spam or not spam; characteristics of the email are used to update a database. Incoming emails are compared against the database, to determine a likelihood of whether they are spam.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205404654076000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1420434",
+                "pat_id": 1420434,
+                "account_id": 1,
+                "patnum": "US7643091B2",
+                "title": "Aspect ratio enhancement",
+                "abstract_html_strip": "An adaptive compensation system for aspect ratio conversion. Video information, intended for her first aspect ratio display, e.g. the standard NTSC aspect ratio, is processed to determine additional information that can enable that video to be displayed and fill a wider aspect ratio screen. The processing can be a calculation which calculates, for example, texture, color and/or brightness of the edge portions, and automatically calculates video information to match the texture, brightness or color. The processing can be a database lookup, which automatically looks up likely portions from a database. The processing can also be an adaptive determination of what vertical portions of the image can be stretched without affecting the viewability, and then an adaptive stretching of different portions by different amounts.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205382991544300,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1724019",
+                "pat_id": 1724019,
+                "account_id": 1,
+                "patnum": "US7512793B1",
+                "title": "Page encryption system",
+                "abstract_html_strip": "Text containing files are encrypted by first formatting the files for display. The display-formatted files are then run length coded to form files indicating the information. The files are encrypted.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205553248829400,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1532516",
+                "pat_id": 1532516,
+                "account_id": 1,
+                "patnum": "US7784050B2",
+                "title": "Temperature management system for a multiple core chip",
+                "abstract_html_strip": "A multiple unit processing system which processes tasks using a plurality of different processing units. Each of the processing units is individually monitor for temperature. A new task is assigned to the processing units based on their level of sale, based on their temperature, and based on the rate of change of temperature. In this way, the temperature of the multiple units can be managed based on the assignment of different tasks.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205449446097000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1668649",
+                "pat_id": 1668649,
+                "account_id": 1,
+                "patnum": "US7490005B2",
+                "title": "Non real time traffic system for a navigator",
+                "abstract_html_strip": "A system for improving the operation of a GPS based navigator. Statistical and/or time of day information is used to select the best route between a current location and a desired location. The statistical information may take into account anomalies, and a user can select the amount of risk they which take. The system can be updated with more updated information. In addition, the selection of the desired location can be carried out by downloading information from a PDA.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205517045694500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2034365",
+                "pat_id": 2034365,
+                "account_id": 1,
+                "patnum": "US7617135B2",
+                "title": "Enhancing touch and feel on the internet",
+                "abstract_html_strip": "A system for enabling touch and feel over the internet provides a three-dimensional representation of a good being sold, that three-dimensional representation being viewable from a number of different directions. In one embodiment, the good being sold is in a package and the package is displayed from the number of different directions. Another embodiment has the good being a book, and the inside and outside covers of the book are displayed and specified pages of the book can be displayed. The user can read from either the label or the covers just like as if the were actually handling the good.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205734336856000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:2163870",
+                "pat_id": 2163870,
+                "account_id": 1,
+                "patnum": "US7321785B2",
+                "title": "Eyeglasses with wireless audio capability",
+                "abstract_html_strip": "A cellular telephone is used as a remote control device to control operations on the users nonportable computer which is remote location to the cellular telephone. The user can carry out various operations on the cellular telephone which cause the remote computer to take some additional action.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205800832303000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:1159815",
+                "pat_id": 1159815,
+                "account_id": 1,
+                "patnum": "US7796940B2",
+                "title": "Personal audio player with wireless filesharing and radio recording and timeshifting",
+                "abstract_html_strip": "A portable MP3 player, which includes radio capability therein. The device includes a radio part which enables receiving radio, either over the airwaves, or via a network. The radio information can be time shared for later use, and sequences within the radio information can be identified for storage within the memory. The memory can store compressed information, such as MP3 information, indicative of songs which are stored. The memory can also store information that is received over the radio.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622205224415395800,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8011416",
+                "pat_id": 8011416,
+                "account_id": 1,
+                "patnum": "US8082592B2",
+                "title": "Read/write encrypted media and method of playing",
+                "abstract_html_strip": "A new media device including a decryption device that is operable to create a decryption key to read media. The decryption device is itself a read/write device that allows reducing or decrementing each time the decryption key is used.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209495970087000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8031606",
+                "pat_id": 8031606,
+                "account_id": 1,
+                "patnum": "US8091095B2",
+                "title": "Embedded driver for an electronic device",
+                "abstract_html_strip": "An electronics module with driver information electronically associated therein. The driver information may be in a memory on the electronics module. The memory may store drivers for multiple operating systems, including a virtual machine type operating system that can be used with any processor or operating system that can run the virtual machine. The memory may alternatively store website information, e.g., an address of the website and codes to use on the website to get the right driver and to validate the hardware.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209510718308400,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8503165",
+                "pat_id": 8503165,
+                "account_id": 1,
+                "patnum": "US8275801B1",
+                "title": "Preference setting in a computer system",
+                "abstract_html_strip": "A profile of likelihoods of actions that will occur on a computer is stored. The computer may be likely to be off between time periods, e.g., between midnight and 7 am. Some action is taken relative to the actions that are likely to occur, before those actions actually happen.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209770360406000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8477310",
+                "pat_id": 8477310,
+                "account_id": 1,
+                "patnum": "US8266709B2",
+                "title": "Adjustable resolution media format",
+                "abstract_html_strip": "A play limit is set for a media file. The play limit can be, for example a date, or a number of times that the file has been played. When the file exceeds the play limit, the quality of the file playing is degraded.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209753736282000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8432457",
+                "pat_id": 8432457,
+                "account_id": 1,
+                "patnum": "US8250365B1",
+                "title": "Page encryption system",
+                "abstract_html_strip": "Text containing files are encrypted by first formatting the files for display. The display-formatted files are then run length coded to form files indicating the information. The files are encrypted.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209736937046000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8057945",
+                "pat_id": 8057945,
+                "account_id": 1,
+                "patnum": "US8099040B2",
+                "title": "Personal audio player with wireless file sharing and radio recording and timeshifting",
+                "abstract_html_strip": "A portable MP3 player, which includes radio capability therein. The device includes a radio part which enables receiving radio, either over the airwaves, or via a network. The radio information can be time shared for later use, and sequences within the radio information can be identified for storage within the memory. The memory can store compressed information, such as MP3 information, indicative of songs which are stored. The memory can also store information that is received over the radio.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209520242524200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8827882",
+                "pat_id": 8827882,
+                "account_id": 1,
+                "patnum": "US8412839B2",
+                "title": "Portable phone remote",
+                "abstract_html_strip": "A video device and a remote control function for a video device that can be carried out over a remote device such as a phone. The phone connects to the video device over a network.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209964685656000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:9068433",
+                "pat_id": 9068433,
+                "account_id": 1,
+                "patnum": "US8510758B1",
+                "title": "Embedded driver for an electronic device",
+                "abstract_html_strip": "An electronics module with driver information electronically associated therein. The driver information may be in a memory on the electronics module. The memory may store drivers for multiple operating systems, including a virtual machine type operating system that can be used with any processor or operating system that can run the virtual machine. The memory may alternatively store website information, e.g., an address of the website and codes to use on the website to get the right driver and to validate the hardware.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622210106872561700,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:9096603",
+                "pat_id": 9096603,
+                "account_id": 1,
+                "patnum": "US8521227B2",
+                "title": "USB stacking devices and applications",
+                "abstract_html_strip": "A modular device formed with USB connectors. The USB can be used for connecting different kinds of devices, for example memories, user interfaces and the like. The USB devices can be piggybacked. In an embodiment, the USB devices can be located in a cavity formed inside the computer. Another embodiment forms a modular cellular telephone.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622210123923456000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8642538",
+                "pat_id": 8642538,
+                "account_id": 1,
+                "patnum": "US8335546B2",
+                "title": "Portable telephone with connection indicator",
+                "abstract_html_strip": "A slave device is charged directly from a cellular phone. The slave device can be charged along with the cellular phone or from the internal battery of the cellular phone. When the slave device is connected, a “click” sound is played through an enunciator of the cellular phone.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209864531968000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8994844",
+                "pat_id": 8994844,
+                "account_id": 1,
+                "patnum": "US8479012B1",
+                "title": "Using biometrics as an encryption key",
+                "abstract_html_strip": "An image of an biometric part is used as encryption or decryption key. The biometric part image is obtained, and items within the biometric part are analyzed. Relationships between those parts are determined, e.g. ratios between different parameters of different parts. Those ratios are then used to form the key. A sequence of biometric information can used in which case both the information itself and the sequence are used to form to the key.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622210064451371000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8581894",
+                "pat_id": 8581894,
+                "account_id": 1,
+                "patnum": "US8311475B1",
+                "title": "Personal audio player with wireless file sharing and radio recording and timeshifting",
+                "abstract_html_strip": "A portable MP3 player, which includes radio capability therein. The device includes a radio part which enables receiving radio, either over the airwaves, or via a network. The radio information can be time shared for later use, and sequences within the radio information can be identified for storage within the memory. The memory can store compressed information, such as MP3 information, indicative of songs which are stored. The memory can also store information that is received over the radio.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209827202662400,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8556456",
+                "pat_id": 8556456,
+                "account_id": 1,
+                "patnum": "US8299895B2",
+                "title": "Cellular phone entry techniques",
+                "abstract_html_strip": "A cell phone is mated with the vehicle system and thereafter used to obtain access to the vehicle. A user who has a cell phone automatically can obtain access to the vehicle. An embodiment describes a USB key that provides access to the vehicle, and in an emergency, either a complete or partial version of the key can be downloaded from a server.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209808964780000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8681857",
+                "pat_id": 8681857,
+                "account_id": 1,
+                "patnum": "US8351761B2",
+                "title": "Commercial skipping standalone device",
+                "abstract_html_strip": "Specified video segments within a video stream are identified. The identified video can represent commercials or can represent portions within the program information. The user can identify these undesired portions of the video. A signature generation unit produces a signature that indicates information about the undesirable video. The signatures are stored. Current video is compared with the signatures to identify portions of the video that correspond to the specified video segments. The identified portions are handled in a different way, for example, they can be played less prominently, or skipped. The signal indicative of the video stream can be produced at a different time than the signature generation. In addition, the signature generation can use biometric techniques.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209882913505300,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8828704",
+                "pat_id": 8828704,
+                "account_id": 1,
+                "patnum": "US8412811B1",
+                "title": "Address sharing network",
+                "abstract_html_strip": "Network IP sharing techniques are described. An ip address can be assigned that is only valid for a specified time, so that the same IP address can be used for multiple different units, but each IP address is valid only for certain time periods. Another technique describes using the network to continually provide a time indication.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209964861816800,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8815792",
+                "pat_id": 8815792,
+                "account_id": 1,
+                "patnum": "US8407469B2",
+                "title": "Protection against unintentional file changing",
+                "abstract_html_strip": "Files are protected against intrusion. A first embodiment protects certain files against changes. A second embodiment encrypts the files that are stored using user's personal information.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209963215552500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8915374",
+                "pat_id": 8915374,
+                "account_id": 1,
+                "patnum": "US8444053B2",
+                "title": "Intelligent credit card system",
+                "abstract_html_strip": "A new credit card system which enables improved reading and other operations. Reading can be done in the short edge of the credit card thereby shortening the aspect ratio and size of the card reader. The reader can be electrical, reading information via contacts, or can be optical readers.",
+                "portfolio_ids": [
+                    503414,
+                    20440
+                ],
+                "_version_": 1622210013419274200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:9134216",
+                "pat_id": 9134216,
+                "account_id": 1,
+                "patnum": "US8537073B1",
+                "title": "Automatic configuration of multiple monitor systems",
+                "abstract_html_strip": "Control of multiple display screens associated with a computer, wherein the auxiliary screen display content that depends on conditions of the computer. During some times the auxiliary screen displays content associated with the presently executing program, and during other times the auxiliary screen displays history information. The rules can be automatically changed or manually changed.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622210147433578500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:9228737",
+                "pat_id": 9228737,
+                "account_id": 1,
+                "patnum": "US8570275B1",
+                "title": "Communication device with advanced characteristics",
+                "abstract_html_strip": "A communicator device which allows improved functions. The communicator device may have real movable keys which are reconfigured when the device is used in different orientations. In a sideways orientation, the device has a rectangular aspect ratio which is wider than it is tall. And in that sideways orientation, the buttons are reconfigured to the orientation they would normally have. The communicator device may also be reoriented into the other position, in which case the assignment and the indication on the buttons is also correspondingly changed. The communicator device may have a projector to project videos, and the communicator device may be able to retrieve numbers and e-mails to be used for communications from a repository on the Internet or from a search engine on the Internet.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622210191035465700,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:9299837",
+                "pat_id": 9299837,
+                "account_id": 1,
+                "patnum": "US8600340B1",
+                "title": "Movement detection system for a portable device such as a portable phone",
+                "abstract_html_strip": "An unintentional dialing event is detected by characterizing some action of a portable phone, e.g., its movement or its surroundings. The action can be characterized by a sensor, and that sensor can be for example an accelerometer, a camera in the phone, or a microphone in the phone, or some other way. The movement can be characterized to see if it is synchronous with entries on the keyboard, which would likely represent the unintentional dialing event or “but dialing”. The environment can also be characterized other ways, for example by using a microphone in the phone to text sound profiles or to detect sounds in sync with the entries, or can be characterized using a camera in the phone to detect a light profile.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622210234913128400,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8195940",
+                "pat_id": 8195940,
+                "account_id": 1,
+                "patnum": "US8154140B2",
+                "title": "Air regeneration for a moving vehicle",
+                "abstract_html_strip": "Airflow regeneration device, which generates electricity from air resistance, but only when the vehicle is in the speed reduction mode. In the non-speed reduction mode, the air resistance is minimally increased. In the speed reduction mode, the air resistance is intentionally increased.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209607237632000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8378516",
+                "pat_id": 8378516,
+                "account_id": 1,
+                "patnum": "US8230431B2",
+                "title": "Guaranteed core access in a multiple core processing system",
+                "abstract_html_strip": "Exclusive access to a core or part of a core, or to multiple cores, but in any case less than all of the cores, of a multiple core processing system. The access can be requested by an instruction, or by a routine. Once granted, the access provides exclusive access to the core so that a program can be run which requires substantially uninterrupted access to the core.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209705951625200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8359888",
+                "pat_id": 8359888,
+                "account_id": 1,
+                "patnum": "US8217753B2",
+                "title": "Electronics antitheft authorizing unit",
+                "abstract_html_strip": "Locked electronic device, e.g., a device which produces a video output, such as a game console or TV. The device is shipped in a locked state, and cannot be used as a game console or a TV until it is unlocked. The unlocking is carried out by a code. The code is provided separately from the device, and only once authorized sale is detected.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209691675263000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8341273",
+                "pat_id": 8341273,
+                "account_id": 1,
+                "patnum": "US8212740B1",
+                "title": "Automatic configuration of multiple monitor systems",
+                "abstract_html_strip": "Control of multiple display screens associated with a computer, wherein the auxiliary screen display content that depends on conditions of the computer. During some times the auxiliary screen displays content associated with the presently executing program, and during other times the auxiliary screen displays history information. The rules can be automatically changed or manually changed.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209690273316900,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8021085",
+                "pat_id": 8021085,
+                "account_id": 1,
+                "patnum": "US8081084B2",
+                "title": "Autolocation of gray goods",
+                "abstract_html_strip": "A device is allowed to be used only in a specified country. The device has an automatic location detection part, and automatically determines its location, and whether that location is authorized. If unauthorized, or if no location detection signal is detected for too long a time, the device is deactivated.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209503326896000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8077476",
+                "pat_id": 8077476,
+                "account_id": 1,
+                "patnum": "US8090162B2",
+                "title": "Using biometrics as an encryption key",
+                "abstract_html_strip": "An image of an biometric part is used as encryption or decryption key. The biometric part image is obtained, and items within the biometric part are analyzed. Relationships between those parts are determined, (e.g. ratios) between different parameters of different parts. Those ratios are then used to form the key. A sequence of biometric information can be used in which case both the information itself and the sequence are used to form to the key.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209528868110300,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8087458",
+                "pat_id": 8087458,
+                "account_id": 1,
+                "patnum": "US8086505B2",
+                "title": "Enhancing touch and feel on the internet",
+                "abstract_html_strip": "A system for enabling touch and feel over the internet provides a three-dimensional representation of a good being sold, that three-dimensional representation being viewable from a number of different directions. In one embodiment, the good being sold is in a package and the package is displayed from the number of different directions. Another embodiment has the good being a book, and the inside and outside covers of the book are displayed and specified pages of the book can be displayed. The user can read from either the label or the covers just as if the user were actually handling the good.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209538031616000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8062579",
+                "pat_id": 8062579,
+                "account_id": 1,
+                "patnum": "US8090952B2",
+                "title": "Counterfeit prevention system based on random positioning on a pattern",
+                "abstract_html_strip": "A genuine detection part for a product formed by a label with a continually repeating pattern and with a sticker over the pattern. The position of the sticker is converted to a number, and encrypted with a private key, to form a signature. The product is only legitimate if the signature matches the position of the sticker on the pattern.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209526136569900,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8046242",
+                "pat_id": 8046242,
+                "account_id": 1,
+                "patnum": "US8081158B2",
+                "title": "Intelligent display screen which interactively selects content to be displayed based on surroundings",
+                "abstract_html_strip": "A display screen with a camera senses an image, detects characteristics of the image, and selects an item to be displayed based on the automatically detected characteristics.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209512239792000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8088150",
+                "pat_id": 8088150,
+                "account_id": 1,
+                "patnum": "US8103973B2",
+                "title": "Enhancing touch and feel on the internet",
+                "abstract_html_strip": "A system for enabling touch and feel over the internet provides a three-dimensional representation of a good being sold, that three-dimensional representation being viewable from a number of different directions. In one embodiment, the good being sold is in a package and the package is displayed from the number of different directions. Another embodiment has the good being a book, and the inside and outside covers of the book are displayed and specified pages of the book can be displayed. The user can read from either the label or the covers just like as if the were actually handling the good.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209538003304400,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8271501",
+                "pat_id": 8271501,
+                "account_id": 1,
+                "patnum": "US8179755B2",
+                "title": "Adaptive high fidelity reproduction system",
+                "abstract_html_strip": "Audio is adaptively associated with speakers, depending on the speaker configuration that is present. Each speaker it receives an audio assignment based on its individual spectral characteristics. As more speakers are added, content is adaptively associated with that you speaker, and taken away from the previous.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209644814401500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8092295",
+                "pat_id": 8092295,
+                "account_id": 1,
+                "patnum": "US8083577B2",
+                "title": "Electronic game with actions based on real statistics",
+                "abstract_html_strip": "Sports based computer game, e.g., football game, is played using data from actual games. Updates are received about new information from more recent games. Each game is divided into plays, and each play is characterized so that the play can be replayed on the game. Characteristics of the plays can be changed to simulate what is scenarios.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209542684147700,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8365978",
+                "pat_id": 8365978,
+                "account_id": 1,
+                "patnum": "US8223122B1",
+                "title": "Communication device with advanced characteristics",
+                "abstract_html_strip": "A communicator device which allows improved functions. The communicator device may have real movable keys which are reconfigured when the device is used in different orientations. In a sideways orientation, the device has a rectangular aspect ratio which is wider than it is tall. And in that sideways orientation, the buttons are reconfigured to the orientation they would normally have. The communicator device may also be reoriented into the other position, in which case the assignment and the indication on the buttons is also correspondingly changed. The communicator device may have a projector to project videos, and the communicator device may be able to retrieve numbers and e-mails to be used for communications from a repository on the Internet or from a search engine on the Internet.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209702713622500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8376268",
+                "pat_id": 8376268,
+                "account_id": 1,
+                "patnum": "US8228207B2",
+                "title": "Autolocation of gray goods",
+                "abstract_html_strip": "A device is allowed to be used only in a specified country. The device has an automatic location detection part, and automatically determines its location, and whether that location is authorized. If unauthorized, or if no location detection signal is detected for too long a time, the device is deactivated.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209705958965200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8101832",
+                "pat_id": 8101832,
+                "account_id": 1,
+                "patnum": "US8073430B1",
+                "title": "Compressed audio information",
+                "abstract_html_strip": "Compressed entertainment content such as audio or video or both includes additional aspects and operations associated their way. The compressed audio may be used to signal computers such as a telephone or reminder for an appointment. A melody line may be extracted from the audio, or the audio may be used exactly as it is. Another aspect stores traders within the entertainment content such as in MP3. Those traders are used to trigger the system to retrieve other parts of the content to be displayed at the same time that that particular part of the MP3 is being play. The content may include video or text, or maybe links to other content such as broadband content four times sensitive content. Another aspect describes encryption which is keyed to the disk ID to prevent playing oven illegally copied disk. Another aspect reads a specified amount of information then spins down the disk to conserve battery power.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209547194073000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8348946",
+                "pat_id": 8348946,
+                "account_id": 1,
+                "patnum": "US8213910B2",
+                "title": "Telephone using a connection network for processing data remotely from the telephone",
+                "abstract_html_strip": "A system of connection between computers. First and second computers are connected over a network. The network preferably uses an existing channel, such as a wireless connection or a telephone line. The first computer may be a PDA or a cell phone. One aspect may take speech into the telephone, send it over the network connection to the second computer, where it is recognized, and return the recognized speech to the first computer.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209690315260000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8714410",
+                "pat_id": 8714410,
+                "account_id": 1,
+                "patnum": "US8365219B2",
+                "title": "Remote frames",
+                "abstract_html_strip": "A device that can operate according to a menu. A first aspect describes an array of preview frames were each preview frame can represent a program such as a video program or an intranet site. A selection window within the array allows selecting different preview frames Another aspect describes use of this sliding array system within a GPS device.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209903024144400,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8725664",
+                "pat_id": 8725664,
+                "account_id": 1,
+                "patnum": "US8368616B1",
+                "title": "Automatic configuration of multiple monitor systems",
+                "abstract_html_strip": "Control of multiple display screens associated with a computer, wherein the auxiliary screen display content that depends on conditions of the computer. During some times the auxiliary screen displays content associated with the presently executing program, and during other times the auxiliary screen displays history information. The rules can be automatically changed or manually changed.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209911575281700,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8712045",
+                "pat_id": 8712045,
+                "account_id": 1,
+                "patnum": "US8363521B2",
+                "title": "Adaptive high fidelity reproduction system",
+                "abstract_html_strip": "Audio is adaptively associated with speakers, depending on the speaker configuration that is present. Each speaker it receives an audio assignment based on its individual spectral characteristics. As more speakers are added, content is adaptively associated with that you speaker, and taken away from the previous.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209902887829500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8582667",
+                "pat_id": 8582667,
+                "account_id": 1,
+                "patnum": "US8312123B2",
+                "title": "Address sharing network",
+                "abstract_html_strip": "Network time techniques. An IP address can be assigned that is only valid for a specified time, so that the same IP address can be used for multiple different units, but each IP address is valid only for certain time periods. Another technique describes using the network to continually provide a time indication.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209827030696000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8861163",
+                "pat_id": 8861163,
+                "account_id": 1,
+                "patnum": "US8427275B1",
+                "title": "Autolocation of gray goods",
+                "abstract_html_strip": "A device is allowed to be used only in a specified location. The device has an automatic location detection part, and automatically determines its location, and whether that location is authorized. If unauthorized, or if no location detection signal is detected for too long a time, the device is deactivated.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209992151007200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8849554",
+                "pat_id": 8849554,
+                "account_id": 1,
+                "patnum": "US8422676B2",
+                "title": "Read/write encrypted media and method of playing",
+                "abstract_html_strip": "A new media device including a decryption device that is operable to create a decryption key to read media. The decryption device is itself a read/write device that allows reducing or decrementing each time the decryption key is used.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209982557585400,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:500940",
+                "pat_id": 500940,
+                "account_id": 1,
+                "patnum": "US7890261B1",
+                "title": "Non real time traffic system for a navigator",
+                "abstract_html_strip": "A system for improving the operation of a GPS based navigator. Statistical and/or time of day information is used to select the best route between a current location and a desired location. The statistical information may take into account anomalies, and a user can select the amount of risk they which take. The system can be updated with more updated information. In addition, the selection of the desired location can be carried out by downloading information from a PDA.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622275194768851000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:9098059",
+                "pat_id": 9098059,
+                "account_id": 1,
+                "patnum": "US8522346B1",
+                "title": "Protection against unintentional file changing",
+                "abstract_html_strip": "Files are protected against intrusion by badly behaving programs. An embodiment may define a file association between a kind of file on an operating system, and a program which normally opens that kind of file. An operation is detected whereby another file attempts to change the file association. When that happens, a recommendation is provided to a user of whether the user should change the file association and allow said different program to open the file. One embodiment may determine if there is another program which is masquerading as said file-associated program and prevent the masquerading program from opening the file.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622210124047188000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:545282",
+                "pat_id": 545282,
+                "account_id": 1,
+                "patnum": "US7880722B2",
+                "title": "Communication device with advanced characteristics",
+                "abstract_html_strip": "A communicator device which allows improved functions. The communicator device may have real movable keys which are reconfigured when the device is used in different orientations. In a sideways orientation, the device has a rectangular aspect ratio which is wider than it is tall. And in that sideways orientation, the buttons are reconfigured to the orientation they would normally have. The communicator device may also be reoriented into the other position, in which case the assignment and the indication on the buttons is also correspondingly changed. The communicator device may have a projector to project videos, and the communicator device may be able to retrieve numbers and e-mails to be used for communications from a repository on the Internet or from a search engine on the Internet.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622275218312528000,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8052360",
+                "pat_id": 8052360,
+                "account_id": 1,
+                "patnum": "US8089423B1",
+                "title": "Automatic configuration of multiple monitor systems",
+                "abstract_html_strip": "Control of multiple display screens associated with a computer, wherein the auxiliary screen display content that depends on conditions of the computer. During some times the auxiliary screen displays content associated with the presently executing program, and during other times the auxiliary screen displays history information. The rules can be automatically changed or manually changed.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209520202678300,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8082543",
+                "pat_id": 8082543,
+                "account_id": 1,
+                "patnum": "US8085537B2",
+                "title": "Cooling system for a portable device",
+                "abstract_html_strip": "A cellular cooling part includes a number at least one movable part, that can be the removable flap or movable cover for a fan. The fan, for example, can be moved or opened to expose it. A flap can also be opened. In addition, different covering structures can be used.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209538082996200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8682754",
+                "pat_id": 8682754,
+                "account_id": 1,
+                "patnum": "US8352352B2",
+                "title": "Web based communication of information with reconfigurable format",
+                "abstract_html_strip": "A system of using an interactive device such as an e-mail pager to obtain information from a publicly available source, such as the Internet. The e-mail pager may send information in its native format to a service that acts as an intermediary. That service takes the information and uses it to assemble a request to the actual information source, such as a Web page being accessed. If a web page is being accessed, the request is in HTML, and may include personal logon information. The response from the web page is also in HTML, and this information is received by the service, and salient information is taken from the HTML file. The information is reformatted, e.g. according to a template, into the e-mail pager″s native format, and sent to the pager. Another embodiment describes opening multiple pages, and assembling their content into a single web page.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209882841153500,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8197530",
+                "pat_id": 8197530,
+                "account_id": 1,
+                "patnum": "US8155697B2",
+                "title": "USB stacking devices and applications",
+                "abstract_html_strip": "A modular device formed with USB connectors. The USB can be used for connecting different kinds of devices, for example memories, user interfaces and the like. The USB devices can be piggybacked. In an embodiment, the USB devices can be located in a cavity formed inside the computer. Another embodiment forms a modular cellular telephone.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209607261749200,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8418543",
+                "pat_id": 8418543,
+                "account_id": 1,
+                "patnum": "US8243930B2",
+                "title": "Counterfeit prevention system based on random processes and cryptography",
+                "abstract_html_strip": "A first portion of a label is formed using a chaotic process that cannot be controlled and forms a portion of the label using the chaotic information. A prospective counterfeiter cannot control the first portion of the label, and hence can only form a different random portion. A private encryption key is used to encrypt information indicative of the random portion. That encrypted information is placed on the same label. That encrypted information can be decrypted by a user using a public key, and compared with the random portion. If they agree, then the label is genuine, and the product has not been counterfeited. Since the random information cannot be replicated exactly, there is no way to copy this label and its encrypted portion exactly onto another product or label.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209723741765600,
+                "score": 1
+            },
+            {
+                "id": "AnalystPat 1:8669293",
+                "pat_id": 8669293,
+                "account_id": 1,
+                "patnum": "US8347367B1",
+                "title": "Techniques for entry of less than perfect passwords",
+                "abstract_html_strip": "A technique of allowing entry of the password which is not 100% correct. This password would be used to verify identity and/or login information in low security techniques. The password is scored relative to the correct password. The scoring can take into effect least mean squares differences, and other information such as letter groups, thereby detecting missed characters or extra characters, as well as shift on the keyboard.",
+                "portfolio_ids": [
+                    20440
+                ],
+                "_version_": 1622209875124682800,
+                "score": 1
+            }
+        ]
+    },
+    "clusters": [{
+            "labels": [
+                "Intelligent",
+                "Credit Card"
+            ],
+            "score": 8.029987335205078,
+            "docs": [
+                "AnalystPat 1:1502752",
+                "AnalystPat 1:2261574",
+                "AnalystPat 1:975039",
+                "AnalystPat 1:8915374",
+                "AnalystPat 1:8046242"
+            ]
+        },
+        {
+            "labels": [
+                "Fidelity Reproduction"
+            ],
+            "score": 7.412484645843506,
+            "docs": [
+                "AnalystPat 1:1865158",
+                "AnalystPat 1:3664178",
+                "AnalystPat 1:4272122",
+                "AnalystPat 1:991859",
+                "AnalystPat 1:8271501",
+                "AnalystPat 1:8712045"
+            ]
+        },
+        {
+            "labels": [
+                "Page Encryption"
+            ],
+            "score": 6.529987335205078,
+            "docs": [
+                "AnalystPat 1:576823",
+                "AnalystPat 1:2743491",
+                "AnalystPat 1:1724019",
+                "AnalystPat 1:8432457",
+                "AnalystPat 1:8994844",
+                "AnalystPat 1:8077476"
+            ]
+        },
+        {
+            "labels": [
+                "File Changing"
+            ],
+            "score": 5.529987335205078,
+            "docs": [
+                "AnalystPat 1:2840723",
+                "AnalystPat 1:1084342",
+                "AnalystPat 1:8815792",
+                "AnalystPat 1:9098059"
+            ]
+        },
+        {
+            "labels": [
+                "Automatic"
+            ],
+            "score": 5.5,
+            "docs": [
+                "AnalystPat 1:3119483",
+                "AnalystPat 1:3144072",
+                "AnalystPat 1:3184026",
+                "AnalystPat 1:861636",
+                "AnalystPat 1:2751696",
+                "AnalystPat 1:2594281",
+                "AnalystPat 1:1464613",
+                "AnalystPat 1:9134216",
+                "AnalystPat 1:8341273",
+                "AnalystPat 1:8725664",
+                "AnalystPat 1:8052360"
+            ]
+        },
+        {
+            "labels": [
+                "Audio"
+            ],
+            "score": 4.5,
+            "docs": [
+                "AnalystPat 1:4694725",
+                "AnalystPat 1:3504244",
+                "AnalystPat 1:2915411",
+                "AnalystPat 1:4272122",
+                "AnalystPat 1:2163870",
+                "AnalystPat 1:1159815",
+                "AnalystPat 1:8057945",
+                "AnalystPat 1:8581894",
+                "AnalystPat 1:8101832"
+            ]
+        },
+        {
+            "labels": [
+                "Real",
+                "Navigator"
+            ],
+            "score": 4.5,
+            "docs": [
+                "AnalystPat 1:3850201",
+                "AnalystPat 1:4833817",
+                "AnalystPat 1:1668649",
+                "AnalystPat 1:8092295",
+                "AnalystPat 1:500940"
+            ]
+        },
+        {
+            "labels": [
+                "Entry",
+                "Techniques"
+            ],
+            "score": 4,
+            "docs": [
+                "AnalystPat 1:2626276",
+                "AnalystPat 1:575942",
+                "AnalystPat 1:8556456",
+                "AnalystPat 1:8669293"
+            ]
+        },
+        {
+            "labels": [
+                "Automatic Electronic"
+            ],
+            "score": 3.5299875736236572,
+            "docs": [
+                "AnalystPat 1:3119483",
+                "AnalystPat 1:3184026",
+                "AnalystPat 1:2751696",
+                "AnalystPat 1:2594281"
+            ]
+        },
+        {
+            "labels": [
+                "Electronic"
+            ],
+            "score": 3.5,
+            "docs": [
+                "AnalystPat 1:3119483",
+                "AnalystPat 1:3184026",
+                "AnalystPat 1:2751696",
+                "AnalystPat 1:2594281",
+                "AnalystPat 1:8031606",
+                "AnalystPat 1:9068433",
+                "AnalystPat 1:8092295"
+            ]
+        },
+        {
+            "labels": [
+                "Other Topics"
+            ],
+            "score": 0,
+            "other-topics": true,
+            "docs": [
+                "AnalystPat 1:685594",
+                "AnalystPat 1:3202956",
+                "AnalystPat 1:3433171",
+                "AnalystPat 1:3647834",
+                "AnalystPat 1:4986451",
+                "AnalystPat 1:3180779",
+                "AnalystPat 1:840913",
+                "AnalystPat 1:3093398",
+                "AnalystPat 1:2926650",
+                "AnalystPat 1:3190867",
+                "AnalystPat 1:887670",
+                "AnalystPat 1:1202585",
+                "AnalystPat 1:1210115",
+                "AnalystPat 1:1024570",
+                "AnalystPat 1:656897",
+                "AnalystPat 1:1275856",
+                "AnalystPat 1:1420434",
+                "AnalystPat 1:1532516",
+                "AnalystPat 1:2034365",
+                "AnalystPat 1:8011416",
+                "AnalystPat 1:8503165",
+                "AnalystPat 1:8477310",
+                "AnalystPat 1:8827882",
+                "AnalystPat 1:9096603",
+                "AnalystPat 1:8642538",
+                "AnalystPat 1:8681857",
+                "AnalystPat 1:8828704",
+                "AnalystPat 1:9228737",
+                "AnalystPat 1:9299837",
+                "AnalystPat 1:8195940",
+                "AnalystPat 1:8378516",
+                "AnalystPat 1:8359888",
+                "AnalystPat 1:8021085",
+                "AnalystPat 1:8087458",
+                "AnalystPat 1:8062579",
+                "AnalystPat 1:8088150",
+                "AnalystPat 1:8365978",
+                "AnalystPat 1:8376268",
+                "AnalystPat 1:8348946",
+                "AnalystPat 1:8714410",
+                "AnalystPat 1:8582667",
+                "AnalystPat 1:8861163",
+                "AnalystPat 1:8849554",
+                "AnalystPat 1:545282",
+                "AnalystPat 1:8082543",
+                "AnalystPat 1:8682754",
+                "AnalystPat 1:8197530",
+                "AnalystPat 1:8418543"
+            ]
+        }
+    ]
+}
