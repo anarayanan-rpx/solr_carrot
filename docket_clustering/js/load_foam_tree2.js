@@ -236,7 +236,7 @@ $(document).ready(function() {
         });
       }
       for (var u = 0; u < pat_data.length; u++)
-        r.push({ id: pat_data[u].docket_id, title: pat_data[u].title });
+        r.push({ id: pat_data[u].docket_id, title: pat_data[u].docket_text });
       CreateTableFromJSON(r);
       var c,
         p = new CarrotSearchFoamTree({
