@@ -104,7 +104,7 @@ function uniq(t) {
 function get_sorted_array(t, e) {
   for (var a = [], o = 0; o < t.length; o++)
     for (var r = 0; r < e.length; r++)
-      e[r] == t[o].id && a.push({ id: t[o].docket_id, title: t[o].title });
+      e[r] == t[o].id && a.push({ id: t[o].docket_id, title: t[o].docket_text });
   return a;
 }
 var generate = function(t, e, a, o) {
