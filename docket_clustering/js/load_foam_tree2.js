@@ -103,17 +103,19 @@ function CreateTableFromJSON(t) {
       columns: [
           
         {
-          title: "docket_id",
-          data: "id",
+          title: "lit_id",
+          data: "lit_id",
           render: function(t, e, a, o) {
             return (t =
-              '<a target="_blank" href="http://st-analyst.rpxcorp.com/#/search/patent/' +
+              '<a target="_blank" href="http://st-insight.rpxcorp.com/lit/' +
               t +
               '">' +
               t +
               "</a>");
           }
         },
+        {title: "docket_id",
+          data: "id"},
         { title: "docket_text", data: "title" }
       ],
       scrollY: "70vh"
@@ -126,7 +128,7 @@ function uniq(t) {
 function get_sorted_array(t, e) {
   for (var a = [], o = 0; o < t.length; o++)
     for (var r = 0; r < e.length; r++)
-      e[r] == t[o].id && a.push({ id: t[o].docket_id, title: t[o].docket_text });
+      e[r] == t[o].id && a.push({ id: t[o].docket_id, title: t[o].docket_text, lit_id: t[o].lit_id });
   return a;
 }
 var generate = function(t, e, a, o) {
@@ -157,7 +159,7 @@ var generate = function(t, e, a, o) {
             });
           }
           for (var d = 0; d < pat_data.length; d++)
-            n.push({ id: pat_data[d].docket_id, title: pat_data[d].docket_text });
+            n.push({ id: pat_data[d].docket_id, title: pat_data[d].docket_text,lit_id:pat_data[d].lit_id });
         }
       }),
       [l, n]
@@ -258,7 +260,7 @@ $(document).ready(function() {
         });
       }
       for (var u = 0; u < pat_data.length; u++)
-        r.push({ id: pat_data[u].docket_id, title: pat_data[u].docket_text });
+        r.push({ id: pat_data[u].docket_id, title: pat_data[u].docket_text, lit_id:pat_data[u].lit_id });
       CreateTableFromJSON(r);
       var c,
         p = new CarrotSearchFoamTree({
@@ -379,7 +381,7 @@ $(document).ready(function() {
                   });
                 }
                 for (var d = 0; d < pat_data.length; d++)
-                  t.push({ id: pat_data[d].docket_id, title: pat_data[d].docket_text });
+                  t.push({ id: pat_data[d].docket_id, title: pat_data[d].docket_text, lit_id: pat_data[d].lit_id });
                 p.set({ dataObject: { groups: a } }), CreateTableFromJSON(t);
               }
             });
@@ -450,7 +452,8 @@ $(document).ready(function() {
                       for (var u = 0; u < pat_data2.length; u++)
                         l.push({
                           id: pat_data2[u].docket_id,
-                          title: pat_data2[u].docket_text
+                          title: pat_data2[u].docket_text,
+                          lit_id: pat_data2[u].lit_id
                         });
                       (t.groups = r),
                         CreateTableFromJSON(l),
